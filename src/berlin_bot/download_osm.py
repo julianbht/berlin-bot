@@ -2,23 +2,34 @@
 Downloads one csv file per OSM data source defined in config.py (Task 1).
 
 Usage:
-    python download_osm.py                 # all sources
-    python download_osm.py Restaurants     # only one source (menu label)
+    uv run download-osm                    # all sources
+    uv run download-osm Restaurants        # only one source (menu label)
 
 The app never calls the Overpass API itself: run this script once, commit the csv files.
 """
+
+import datetime
+import json
 import os
 import sys
-import json
-import datetime
 
-import pandas as pd
 import osmnx as ox
+import pandas as pd
 
-from config import pdict
+from berlin_bot.config import pdict
+from berlin_bot.paths import PROJECT_ROOT
 
 # Columns that are kept (if they exist for the downloaded objects)
-KEEP = ["name", "cuisine", "brand", "operator", "access", "opening_hours", "wheelchair", "addr:postcode"]
+KEEP = [
+    "name",
+    "cuisine",
+    "brand",
+    "operator",
+    "access",
+    "opening_hours",
+    "wheelchair",
+    "addr:postcode",
+]
 
 
 def download_source(label, cfg):
@@ -54,8 +65,13 @@ def write_info(label):
         json.dump(info, f, indent=2)
 
 
-if __name__ == "__main__":
+def main():
+    os.chdir(PROJECT_ROOT)
     labels = sys.argv[1:] or list(pdict["sources"].keys())
     for label in labels:
         download_source(label, pdict["sources"][label])
         write_info(label)
+
+
+if __name__ == "__main__":
+    main()

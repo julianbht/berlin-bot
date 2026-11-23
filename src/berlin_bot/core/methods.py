@@ -1,18 +1,18 @@
-import os
 import json
+import os
 
-import numpy                         as np
-import pandas                        as pd
-import geopandas                     as gpd
 import folium
-from folium.plugins                  import HeatMap, MarkerCluster
-from branca.colormap                 import LinearColormap
-import streamlit                     as st
-from streamlit_folium                import st_folium
+import geopandas as gpd
+import numpy as np
+import pandas as pd
+import streamlit as st
+from branca.colormap import LinearColormap
+from folium.plugins import HeatMap, MarkerCluster
+from streamlit_folium import st_folium
 
-import core.HelperTools              as ht
-import core.chat                     as chat
-from config                          import pdict as CFG      # only for CRS and thresholds
+from berlin_bot.config import pdict as CFG  # only for CRS and thresholds
+from berlin_bot.core import HelperTools as ht
+from berlin_bot.core import chat
 
 
 # =============================================================================
@@ -54,7 +54,12 @@ def assign_area(gdf_points, gdf_areas, key):
 
 def _split_values(series):
     """'italian;pizza' -> ['italian', 'pizza'] (empty list if missing)"""
-    return series.fillna("").astype(str).str.split(";").apply(lambda v: [x.strip() for x in v if x.strip()])
+    return (
+        series.fillna("")
+        .astype(str)
+        .str.split(";")
+        .apply(lambda v: [x.strip() for x in v if x.strip()])
+    )
 
 
 def category_options(gdf, col, n=10):
@@ -117,7 +122,7 @@ def make_map(gdf_points, gdf_agg, maptype, key="PLZ", colors=("yellow", "red"), 
     elif maptype == "Heatmap":
         # TODO: HeatMap([[lat, lon], ...])        <- Folium wants [lat, lon]
         pass
-    else:   # Point map (clusters)
+    else:  # Point map (clusters)
         # TODO: MarkerCluster with one marker per point, name as tooltip
         pass
     return m
@@ -156,7 +161,9 @@ def make_streamlit_app(pdict, df_residents):
     src = st.sidebar.selectbox("Data source", list(pdict["sources"].keys()))
     cfg = pdict["sources"][src]
     if not os.path.exists("datasets/" + cfg["file"]):
-        st.error("File datasets/" + cfg["file"] + " not found. Run:  python download_osm.py \"" + src + "\"")
+        st.error(
+            "File datasets/" + cfg["file"] + ' not found. Run:  uv run download-osm "' + src + '"'
+        )
         return
     pts, plz, dis, quality = prepare_source(src, pdict)
 
@@ -166,8 +173,8 @@ def make_streamlit_app(pdict, df_residents):
 
     # ---- Menus 3-5 ----------------------------------------------------------
     area_label = st.sidebar.selectbox("Area unit", list(pdict["areas"].keys()))
-    ind        = st.sidebar.selectbox("Indicator", pdict["indicators"])
-    mtype      = st.sidebar.selectbox("Map type", pdict["maptypes"])
+    ind = st.sidebar.selectbox("Indicator", pdict["indicators"])
+    mtype = st.sidebar.selectbox("Map type", pdict["maptypes"])
     # optional menu 6: colour scale (only for the choropleth)
 
     # TODO: key (PLZ / Bezirk) and the matching polygons, filter by category, stop with st.warning if empty,

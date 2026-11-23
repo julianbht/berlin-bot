@@ -1,22 +1,21 @@
 # -------------------------------
-# Installation (Python 3.10+):
-python -m venv .venv
-.venv\Scripts\activate          (Windows)     source .venv/bin/activate   (Mac / Linux)
-pip install -r requirements.txt
+# Installation (needs uv, https://docs.astral.sh/uv/)
+uv sync
 
 # -------------------------------
 # Step 1: download the OSM data (Task 1), once per data source
-python download_osm.py
-python download_osm.py Restaurants        # only one source
+uv run download-osm
+uv run download-osm Restaurants        # only one source
 
 # -------------------------------
 # Step 2: start the Streamlit app
-streamlit run main.py
+uv run streamlit run src/berlin_bot/app.py
 
 # -------------------------------
-# Files
+# Files (in src/berlin_bot/)
 config.py        data sources and options of the pull-down menus
 download_osm.py  OSM download (Overpass via osmnx)
-main.py          entry point of the app
+app.py           entry point of the app
+paths.py         project root, so that "datasets/" resolves from anywhere
 core/methods.py  loading, spatial join, indicators, data quality, map, app
-datasets/        PLZ and Bezirk polygons, residents, (downloaded) OSM csv files
+datasets/        (project root) PLZ and Bezirk polygons, residents, downloaded OSM csv files
