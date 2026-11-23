@@ -39,18 +39,30 @@ def download_source(label, cfg):
 
     # The index is (element type, id). Turn it into normal columns "osm_type" and "osm_id".
     # Hint: gdf.reset_index(); the column names differ between osmnx versions -> use gdf.columns[0], [1]
-    # TODO
+    gdf = gdf.reset_index()
+    gdf = gdf.rename(columns={gdf.columns[0]: "osm_type", gdf.columns[1]: "osm_id"})
 
     # Nodes are points, ways / relations are polygons. We need ONE point per object:
     # centroid in a projected CRS (pdict["crs_metric"]), then back to lat / lon (pdict["crs_geo"]).
-    # TODO: add columns "lat" and "lon"
+    # A centroid computed in degrees would be distorted, so it is computed in metres.
+    centroids = gdf.geometry.to_crs(pdict["crs_metric"]).centroid.to_crs(pdict["crs_geo"])
+    gdf["lat"] = centroids.y
+    gdf["lon"] = centroids.x
 
     # Tags do not exist for every object. Add missing columns from KEEP and cfg["subcat"] (filled with
     # pd.NA), so that later code never fails on a missing column.
-    # TODO
+    # dict.fromkeys drops repeats ("name" is also in KEEP) and keeps the order
+    columns = list(
+        dict.fromkeys(["osm_type", "osm_id", "name", "lat", "lon", *KEEP, cfg["subcat"]])
+    )
+    for col in columns:
+        if col not in gdf.columns:
+            gdf[col] = pd.NA
 
-    # TODO: select osm_type, osm_id, name, lat, lon + the KEEP columns, remove duplicates,
-    #       save to "datasets/" + cfg["file"]  (sep=";", index=False, encoding="utf-8")
+    df = pd.DataFrame(gdf[columns]).drop_duplicates(subset=["osm_type", "osm_id"])
+    os.makedirs("datasets", exist_ok=True)
+    df.to_csv("datasets/" + cfg["file"], sep=";", index=False, encoding="utf-8")
+    print("  saved", len(df), "objects to datasets/" + cfg["file"])
 
 
 def write_info(label):
