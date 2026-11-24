@@ -134,15 +134,76 @@ def aggregate(
 # =============================================================================
 # 4) Data quality
 # =============================================================================
-def quality_report(gdf_points, gdf_areas, subcat=None):
+def _count_and_share(count: int, total: int) -> str:
+    """'12 (3.4 %)'; the share is left out when there is nothing to divide by"""
+    if total == 0:
+        return str(count)
+    return f"{count} ({count / total * 100:.1f} %)"
+
+
+def _is_missing(series: pd.Series) -> pd.Series:
+    """True for NaN and for empty or blank strings"""
+    return series.isna() | (series.astype(str).str.strip() == "")
+
+
+def _near_duplicates(gdf_points: gpd.GeoDataFrame) -> int:
+    """Number of objects that have another object with the same name closer than dup_distance_m"""
+    named = gdf_points.loc[~_is_missing(gdf_points["name"]), ["name", "geometry"]]
+    named = named.to_crs(CFG["crs_metric"])
+    pairs = gpd.sjoin(named, named, predicate="dwithin", distance=CFG["dup_distance_m"])
+    # The self-join also pairs every object with itself
+    pairs = pairs[
+        (pairs.index != pairs["index_right"]) & (pairs["name_left"] == pairs["name_right"])
+    ]
+    return pairs.index.nunique()
+
+
+def quality_report(
+    gdf_points: gpd.GeoDataFrame, gdf_areas: gpd.GeoDataFrame, subcat: str | None = None
+) -> pd.DataFrame:
     """Automatic checks of one OSM file. Expects column 'PLZ' (from assign_area). Returns DataFrame."""
-    # TODO (see Task 5): number of objects, share without name, share without <subcat>,
-    #      near-duplicates (same name, closer than CFG["dup_distance_m"] metres - compute in CFG["crs_metric"]),
-    #      points outside Berlin (PLZ is NaN), implausible coordinates (CFG["berlin_lat"], CFG["berlin_lon"]),
-    #      share of objects with addr:postcode and how often it equals the PLZ of the spatial join,
-    #      number of PLZ areas without any object.
-    #      Return a DataFrame with the columns "Check" and "Result".
-    raise NotImplementedError
+    total = len(gdf_points)
+    checks: list[tuple[str, str]] = [("Number of objects", str(total))]
+
+    without_name = int(_is_missing(gdf_points["name"]).sum())
+    checks.append(("Without name", _count_and_share(without_name, total)))
+    if subcat is not None and subcat in gdf_points.columns:
+        without_subcat = int(_is_missing(gdf_points[subcat]).sum())
+        checks.append((f"Without {subcat}", _count_and_share(without_subcat, total)))
+
+    near_duplicates = _near_duplicates(gdf_points)
+    checks.append(
+        (
+            f"Near-duplicates (same name, < {CFG['dup_distance_m']} m)",
+            _count_and_share(near_duplicates, total),
+        )
+    )
+
+    outside = int(gdf_points["PLZ"].isna().sum())
+    checks.append(("Outside Berlin (no PLZ area)", _count_and_share(outside, total)))
+
+    lat_min, lat_max = CFG["berlin_lat"]
+    lon_min, lon_max = CFG["berlin_lon"]
+    plausible = gdf_points.geometry.y.between(lat_min, lat_max) & gdf_points.geometry.x.between(
+        lon_min, lon_max
+    )
+    checks.append(("Implausible coordinates", _count_and_share(int((~plausible).sum()), total)))
+
+    has_postcode = ~_is_missing(gdf_points["addr:postcode"])
+    checks.append(("With addr:postcode", _count_and_share(int(has_postcode.sum()), total)))
+    # Only points that have both a postcode and a PLZ from the join can be compared
+    comparable = gdf_points[has_postcode & gdf_points["PLZ"].notna()]
+    joined_plz = comparable["PLZ"].astype(int).astype(str)
+    matches = int((comparable["addr:postcode"].str.strip() == joined_plz).sum())
+    checks.append(
+        ("addr:postcode equals PLZ of the join", _count_and_share(matches, len(comparable)))
+    )
+
+    plz_with_objects = gdf_points["PLZ"].dropna().astype(int)
+    empty_areas = int((~gdf_areas["PLZ"].isin(plz_with_objects)).sum())
+    checks.append(("PLZ areas without any object", _count_and_share(empty_areas, len(gdf_areas))))
+
+    return pd.DataFrame(checks, columns=["Check", "Result"])
 
 
 # =============================================================================
