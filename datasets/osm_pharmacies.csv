@@ -1,0 +1,674 @@
+osm_type;osm_id;name;lat;lon;cuisine;brand;operator;access;opening_hours;wheelchair;addr:postcode
+node;60775323;Reichenberger Apotheke;52.54074119999999;13.4866016;;;;;"Mo-Th 08:00-19:00; Fr 08:00-18:30; Sa 09:00-13:00";yes;13055
+node;60848447;Castello-Apotheke;52.53183530000001;13.469653599999997;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;
+node;60852928;Rosen Apotheke;52.527555199999995;13.4685134;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-12:00";yes;10369
+node;68437791;Margareten-Apotheke;52.4893922;13.4505245;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";no;12435
+node;69226035;Leipziger Apotheke;52.510556099999995;13.3958628;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00";yes;10117
+node;76507297;Preußen-Apotheke;52.48154849999999;13.319069400000002;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";limited;10713
+node;76519952;Bundes-Apotheke;52.4865543;13.331406399999999;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";yes;10715
+node;76596388;Mühlenberg-Apotheke;52.5431994;13.4423197;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-14:00";yes;10409
+node;78244254;Axels Apotheke;52.507124700000006;13.3947881;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-13:00";yes;
+node;79603436;Diamant Apotheke;52.5633045;13.328774300000001;;;;;"Mo-Fr 09:00-19:00; Sa 10:00-19:00";yes;13405
+node;79606682;Apotheke am Markt Reinickendorf;52.5668918;13.3170343;;;;;Mo-Fr 08:30-18:00, Sa 08:30-13:00;limited;13405
+node;79624638;Barlach Apotheke;52.570129099999996;13.3213944;;;;;Mo-Fr 08:30-18:30, Sa 08:30-13:00;yes;13403
+node;79688159;Park-Apotheke;52.4815398;13.3289844;;;;;Mo-Fr 08:30-18:30;yes;10715
+node;81362602;Kranich-Apotheke;52.51049230000001;13.2716035;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;14050
+node;87036261;Nordland Apotheke;52.5306975;13.3841248;;;Tina Töllner e.K.;;Mo-Fr 08:00-19:00;yes;10115
+node;87040402;Friedrichstadt Apotheke;52.511769199999996;13.386884300000002;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-13:00";yes;10117
+node;89274697;Panorama Apotheke;52.521846999999994;13.4098188;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-14:00";no;10178
+node;89274888;Bezirksapotheke am Roten Rathaus;52.5197805;13.4108917;;;BEZIRKSapotheke;;"Mo-Fr 09:00-19:00; Sa 10:00-19:00";yes;10178
+node;89275182;Fischerinsel-Apotheke;52.513380899999994;13.4053524;;;Ralf Goepfert e.K.;;"Mo-Fr 08:00-19:00; Sa 08:30-14:00";yes;10178
+node;203469194;Poseidon-Apotheke;52.5276071;13.5421939;;;;;;yes;12681
+node;203474469;Skarabäus-Apotheke;52.5204665;13.5558118;;;Raphael Abongnelah;;"Mo-Fr 08:30-19:00;Sa 08:30-13:00;Su,PH off";yes;12683
+node;250195921;Alte Roland-Apotheke;52.526462499999994;13.3501221;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-13:00";yes;10559
+node;251737915;Virchow Apotheke;52.54972999999999;13.3498263;;;;;"Mo,Tu 08:30-19:00; We 08:30-18:30; Th 08:30-19:00; Fr 08:30-18:30";yes;13353
+node;254307048;Wotan Apotheke;52.5069033;13.3218338;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";yes;10623
+node;255825174;Wildenbruch Apotheke;52.481889200000005;13.440147;;;Mosa Masalmeh;;"Mo-Fr 09:00-19:00; Sa 10:30-17:00";yes;12045
+node;255825368;Frühlicht-Apotheke;52.4803687;13.4394937;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-14:00";yes;12043
+node;259081139;Nordring Apotheke;52.549263;13.4133047;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-15:00; PH off";yes;10437
+node;259081143;Vita Apotheke;52.5509103;13.407907700000003;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00";limited;10439
+node;260865620;Taut-Apotheke;52.41240869999999;13.5725538;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-16:00";yes;
+node;261963290;Grüne Apotheke;52.49070540000001;13.4567328;;;DocMorris Kooperationen GmbH;;"Mo-Fr 09:00-18:00; Sa 10:00-14:00";yes;12435
+node;262213475;Möllendorff-Apotheke;52.5241575;13.4800051;;;;;Mo-Fr 08:30-18:30, Sa 08:30-13:00;yes;10367
+node;263699380;Robinson Apotheke;52.517681;13.5829;;;;;"Mo-Fr 08:00-18:30, Sa 08:00-13:00; PH off";yes;12619
+node;266630604;Georginen-Apotheke;52.51114990000001;13.6121832;;;Andrea Weigel;;"Mo-Fr 08:00-19:00; Sa 09:00-13:00; PH off";yes;12623
+node;266632232;Mahlsdorfer Apotheke;52.509361;13.6138214;;;;;"Mo,Tu 08:00-19:30, We-Fr 08:00-18:30, Sa 08:00-13:00; PH off";yes;12623
+node;266674656;Neue Medikus Apotheke;52.50713679999999;13.592044;;;Christoph Neumann e.K.;;"Mo-Fr 08:00-19:00;Sa 08:00-13:00; PH off";yes;12621
+node;267366952;Wins-Apotheke;52.5360082;13.4270624;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00; Su off";yes;10405
+node;267860831;Seegefelder-Apotheke;52.5372848;13.187916300000001;;;;;;no;13583
+node;268636979;Brandenburg-Apotheke;52.49853910000001;13.3071113;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;10707
+node;268726812;Rosegger-Apotheke;52.478949699999994;13.445178100000001;;;Axel Emmrich;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;12059
+node;268844381;Storchen-Apotheke;52.612810299999985;13.231501400000003;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-13:00";yes;13503
+node;268844523;Apotheke am Markt;52.607564999999994;13.2348292;;;Ulrike Klaus;;"Mo-Fr 08:00-18:30;Sa 08:30-13:30";no;13503
+node;268981834;Grimm-Apotheke;52.4935361;13.4134932;;;;;"Mo-Fr 09:00-18:30; Sa 10:00-14:00";limited;10967
+node;269478054;Apotheke am Engelbecken;52.507578999999986;13.414104;;;Ralf Goepfert e.K.;;"Mo-Fr 08:00-19:00; Sa 08:30-14:00";yes;10179
+node;270814721;Die Dorotheen Apotheke;52.4271388;13.216597;;;Dr. Petra Schneider;;"Mo-Fr 08:30-20:00; Sa 08:00-14:00";yes;14129
+node;270906159;Rosen-Apotheke Berlin;52.432762800000006;13.7098785;;;;;;yes;12589
+node;271282692;Kolberger Apotheke;52.54398899999999;13.373597600000002;;;Michaela Meister;;"Mo-Fr 08:30-18:00; Sa 08:30-13:00";no;13347
+node;271405514;Hauptstadt Apotheke;52.5320913;13.198171400000001;;;Jana Schreiber;;"Mo-Th 08:00-19:00; Fr 08:00-18:00; Sa 09:00-13:00; Su,PH off";yes;13581
+node;271708716;Altstadt-Apotheke;52.5366282;13.2052104;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00; Su,PH off";yes;
+node;271708914;Löwen-Apotheke;52.537686599999994;13.2060246;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";no;
+node;271710934;Adler-Apotheke;52.537663499999994;13.2036654;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-16:00; Su,PH off";yes;13597
+node;271713876;Spandauer Apotheke;52.54290799999999;13.205959400000001;;;DocMorris;;"Mo-Fr 08:00-18:30; Sa 09:00-13:00; Su,PH off";limited;13585
+node;272385616;Jäger Apotheke;52.5211632;13.1970215;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00; PH,Su off";yes;13595
+node;272385919;Adam Apotheke;52.520894199999994;13.1948184;;;;;"Mo-Fr 08:30-18:00; Sa 08:30-13:00";yes;13595
+node;272386317;Pichelsdorf Apotheke;52.525470500000004;13.1971411;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30; Su,PH off";yes;13595
+node;272499930;Ringbahn-Apotheke;52.4678648;13.4421953;;;;;Mo-Fr 08:30-18:30, Sa 08:30-13:00;limited;12055
+node;272662737;Kaiser Apotheke;52.4889422;13.3939616;;;;;"Mo-Fr 08:30-20:00; Sa 09:00-20:00";yes;10961
+node;273743446;Apotheke Bahnhof Spandau;52.5356492;13.1956671;;;;;"Mo,Tu,Th 08:00-18:30; We,Fr 08:00-18:00; Sa 09:00-13:00";limited;13597
+node;274864546;Hansa Apotheke;52.5217984;13.198061;;;;;;no;
+node;275623282;gesundleben Apotheke Mahlsdorf;52.51338019999999;13.6120014;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-13:00; PH off";yes;12623
+node;275887592;Galenus-Apotheke;52.52362949999999;13.386715;;;;;"Mo-Fr 08:00-19:00; Sa,Su,PH off";no;
+node;276145617;Stern Apotheke;52.4671189;13.4886389;;;Christoph Albertini e.K.;;"Mo-Fr 08:00-19:00; Sa 08:30-13:30";limited;12437
+node;276774391;Marien-Apotheke;52.512828;13.1833779;;;;;"Mo-Fr 08:30-18:00; Sa 08:30-13:00";yes;13595
+node;280296894;Thalia Apotheke;52.436409299999994;13.346407900000003;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;
+node;282744493;Mirbach;52.517377;13.4686866;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-13:30";yes;
+node;282762536;Frankfurter Apotheke;52.5144752;13.4648596;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-15:00";yes;10247
+node;282836294;Treskow-Apotheke;52.482545099999996;13.526263000000002;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-13:00";yes;10318
+node;283346896;Uferpalais-Apotheke;52.54675389999999;13.2094458;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";no;
+node;287852225;Bärliner Apotheke;52.5678242;13.5724583;;;;;"Mo-Fr 08:00-19:00; Sa 08:30-16:30";yes;12689
+node;287970707;Apotheke im Kaufland;52.5643537;13.4445534;;;;;Mo-Sa 08:30-19:30;yes;13089
+node;291014069;Tulpen-Apotheke;52.4163173;13.3997542;;;Apothekerin Irmtraud Knuth;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00";yes;12107
+node;291212713;Atlas-Apotheke;52.5473903;13.1871238;;;Apotheker Dr. Christian Fechner e. K.;;"Mo-Fr 09:00-18:30; We 09:00-17:45; Sa 09:00-13:00";yes;13583
+node;291432407;Kreisel-Apotheke;52.4564263;13.3209201;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-18:00";yes;12165
+node;292699498;Birken-Apotheke;52.59535679999999;13.3351509;;;;;"Mo-Fr 08:00-19:30; Sa 08:00-16:00";yes;
+node;297410017;Pharmland-Apotheke;52.49970429999999;13.4969744;;;Dr. Frank Kiesewalter;;Mo-Sa 09:00-19:00;yes;10319
+node;297489806;Helgoland Apotheke;52.41256760000001;13.359647;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;
+node;297512115;Helianthus-Apotheke;52.46758489999999;13.3308517;;;Sharareh Hemmati Sadeghi;;"Mo-Fr 08:30-19:00; Sa,Su off";no;12161
+node;297512117;Burger Apotheke;52.4672318;13.327995500000002;;;Norbert Peter e.K.;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";limited;12161
+node;304367397;Glückskind Apotheke;52.52494009999999;13.142440100000002;;;;;"Mo-Fr 09:00-14:00,15:00-18:00; Sa 09:00-13:00";yes;13591
+node;307983960;Leo Apotheke;52.546418599999996;13.358656;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;13353
+node;308019535;Apotheke 24;52.5054076;13.5142084;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-14:00";yes;
+node;308719063;Hedwig-Apotheke;52.4274299;13.3262036;;;;;"Mo-Fr 08:30-18:30; Sa 08:00-13:30";yes;12209
+node;310377174;Ahorn Apotheke;52.48018969999999;13.342814100000002;;;Bettina Achilles;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";no;10825
+node;310764887;Berliner Bär-Apotheke;52.50579219999999;13.512809600000002;;;Britta Küttner;;Mo-Fr 08:00-18:30;yes;
+node;311089081;M.C. Apotheke;52.5028212;13.3167347;;;;;;limited;10629
+node;312714262;Tauern-Apotheke;52.423641599999996;13.3978849;;;;;Mo-Fr 08:30-18:30;yes;12107
+node;312956048;Alexandrinen-Apotheke;52.4752159;13.2899562;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";no;14199
+node;313173921;Pankow-Apotheke;52.56678019999999;13.4155075;;;Christoph Gümpel;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";limited;13189
+node;313584459;Apotheke Dahlem-Dorf;52.4578484;13.2924415;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";limited;14195
+node;313933591;Arkona Apotheke;52.53558360000001;13.4063535;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-18:00; Su 09:00-18:00";;10119
+node;314022672;Insel Apotheke;52.50150829999999;13.3110277;;;;;"Mo-Fr 08:00-18:30; Sa 08:30-13:00";no;10629
+node;315234035;Preußenapotheke;52.4479601;13.3849712;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;12105
+node;315803527;Regina Apotheke;52.491277399999994;13.3447676;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-14:00";no;10779
+node;315820338;Akazien-Apotheke;52.48660039999999;13.3565305;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-18:00";yes;10827
+node;316533474;Waage Apotheke;52.49790699999999;13.2973176;;;;;"Mo-Fr 08:30-19:00; Sa 10:00-16:00";yes;10709
+node;316704530;Aida Apotheke;52.52600649999999;13.3022696;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";no;10589
+node;317148496;Petersburger Apotheke;52.521467599999994;13.4496352;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;10249
+node;317175755;Albrecht-Apotheke Steglitz;52.4565269;13.319862;;;Fr. Martina Bethke e.K.;;"Mo-Th 08:00-19:00; Fr 08:00-18:30; Sa off";yes;12165
+node;317552407;Easy Apotheke;52.43328160000001;13.5362695;;easyApotheke;Christian Melzer e.K.;;"Mo-Th 08:00-19:30; Fr 08:00-20:00; Sa 09:00-16:00";yes;12489
+node;317552408;Aesculap Apotheke;52.4317485;13.537380700000002;;;Christian Melzer e.K.;;"Mo,Tu,Th 08:00-18:30; We,Fr 08:00-18:00";yes;12489
+node;317614303;Fräulein Beckers Lieblingsapotheke;52.5174584;13.442880300000002;;;;;Mo-Fr 09:00-18:30;yes;10243
+node;319092509;Merlin-Apotheke;52.526786599999994;13.4149448;;;;;"Mo-We,Fr 08:00-18:30; Th 08:00-19:30; Sa 09:00-13:00";limited;
+node;319494473;Apotheke im Kaufzentrum;52.5361217;13.2754707;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";;13629
+node;322151533;Apotheke am Koppenplatz;52.527485599999984;13.3978184;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;
+node;323597684;Gertruden-Apotheke;52.4285785;13.3284113;;;Norbert Bartetzko;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";yes;12209
+node;324023598;Cecilien-Apotheke;52.5207833;13.5917073;;;Ludger Klabes;;"Mo-Fr 08:00-19:00, Sa 08:00-13:00; PH off";yes;12619
+node;324363717;Apotheke am Strausberger Platz;52.51778289999999;13.4292246;;;Christine Gunkel e.K.;;"Mo-Fr 09:00-18:30; Sa 09:00-14:00";yes;10243
+node;324789478;Anker Apotheke;52.41308619999999;13.363884400000002;;;;;"Sa 08:30-13:00; We 08:30-13:00; Mo,Tu,Th,Fr 08:00-18:30";yes;12277
+node;330966646;Hölderlin-Apotheke;52.503192399999996;13.388315500000001;;;;;"Mo,Tu,Th 08:30-19:00; We,Fr 08:30-18:30";yes;10963
+node;332555438;Seume-Apotheke;52.5088216;13.4612497;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-14:00";limited;10245
+node;332555440;Apotheke am Ostkreuz;52.50623639999999;13.4658756;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-13:00";yes;10245
+node;332961993;Apotheke am Nauener Platz;52.55165399999999;13.3669194;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-14:00";yes;
+node;332964520;Dr. Gropler´s Apotheke;52.54986749999999;13.3686632;;;;;Mo-Tu 08:00-18:30, We 08:00-18:00, Th 08:00-18:30, Fr 08:00-18:00, Sa 09:00-13:00;yes;13347
+node;333408605;Werbellin-Apotheke;52.47765369999999;13.4258598;;;;;"Mo-Fr 08:30-20:00; Sa 09:00-18:00; Su off";yes;12049
+node;333410692;Apotheke am Herrfurthplatz;52.4773102;13.4229686;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-14:00";limited;12049
+node;333909847;Driesener Apotheke;52.55289109999999;13.4058278;;;;;"Mo,Tu,Th 08:00-19:30; We,Fr 08:00-18:30; Sa 08:00-13:00";no;10439
+node;336117214;Grüne Apotheke 62;52.507096;13.3063256;;;;;"Mo-Fr 09:00-19:00; Sa 10:00-16:00; Su,PH off";yes;10627
+node;340129941;Apotheke Carmer-7;52.50688860000001;13.323447400000001;;;Bettina Moeglich;;"Mo-Tu,Th-Fr 08:00-20:00; We 08:00-19:00; Sa 09:00-14:00";no;10623
+node;343784476;Fasanen-Apotheke;52.543384599999996;13.5712888;;;;;Mo-Fr 09:00-18:00;yes;12685
+node;347298415;Seydlitz Apotheke;52.43168770000001;13.3373088;;;;;"Mo-Fr 08:30-18:00; Sa 08:30-13:00";yes;12247
+node;347422942;Eichen Apotheke;52.4415204;13.298633800000001;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;12205
+node;348052909;Augusta-Apotheke am Mexikoplatz;52.4380311;13.233166;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;14163
+node;349301668;Leibniz Apotheke Berlin;52.506088899999995;13.3140939;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;10625
+node;352983796;Kronen-Apotheke;52.45448739999999;13.3238828;;;;;"Mo-Fr 08:00-18:00; Sa 08:00-13:00; Su,PH off";;12165
+node;353744167;Apotheke am Flughafen;52.4845367;13.3847889;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";limited;12101
+node;356807869;Arcaden Apotheke;52.5495274;13.4153133;;;;;"Mo-Fr 08:30-20:00; Sa 09:00-20:00";yes;10439
+node;366186442;Hutten-Apotheke;52.5270388;13.3302792;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;10555
+node;366536622;Jagow-Apotheke;52.524205099999996;13.3343198;;;;;"Mo-Th 08:30-19:30; Fr 08:30-18:30; Sa 08:30-14:00";yes;10555
+node;371157962;Gethsemane-Apotheke;52.54768299999999;13.414619600000002;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;10437
+node;380498298;Dorotheenstadt Apotheke;52.51856029999999;13.3879579;;;Ulrike Uhlig;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;10117
+node;380498345;MediosApotheke;52.5247199;13.3794578;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;10117
+node;387491865;Wilhelminenhof Apotheke;52.459031200000005;13.5255932;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-12:30";limited;12459
+node;393409421;easyApotheke;52.4977192;13.2927797;;easyApotheke;;;"Mo-Fr 09:00-19:00; Sa 09:00-16:00";yes;10711
+node;393409422;Sky Apotheke am Kudamm;52.497620899999994;13.2956562;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";yes;10711
+node;399348493;Elsen-Apotheke;52.5047368;13.4953236;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";yes;10317
+node;400912055;Apotheke am Hugenottenplatz;52.6066817;13.419909200000001;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00";yes;13127
+node;409760015;Apotheke am Hochmeisterplatz;52.495709899999994;13.2976849;;;;;"Mo,Tu,Th,Fr 09:00-18:30; We 09:00-14:00; Sa 09:00-13:30";yes;10709
+node;409775548;Engel Apotheke;52.561849200000005;13.206948400000002;;;Nico Hauffe e.K.;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00; Su,PH off";yes;13587
+node;409925337;Polimedica-Apotheke;52.505339799999994;13.5582606;;;Heike Gebauer e.K.;;"Sa 08:00-13:00; Mo-Fr 08:00-19:00";yes;12683
+node;409925350;Phönix-Apotheke;52.459278600000005;13.5795409;;;Dr. Ulrike Timm e.K.;;"Mo-Th 08:00-19:00; Fr 08:00-19:00; PH off; Sa 08:00-14:00";yes;12555
+node;410135921;Reichenberger Apotheke;52.4941966;13.4356179;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-13:30";yes;10999
+node;410499179;Blumberger Apotheke;52.55164210000001;13.5782485;;;;;"Mo-Fr 08:00-19:00; Sa 08:30-13:00; Su off";yes;12679
+node;411273144;Askanier Apotheke;52.5576682;13.2082963;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00; PH off";yes;13587
+node;412408145;Kaiser Wilhelm Apotheke;52.4860593;13.356676600000002;;;;;"Mo-Fr 09:00-20:00; Sa 09:00-18:00";yes;10827
+node;415318053;Apotheke am Helmholtzplatz;52.5420046;13.420071100000001;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-15:00";yes;10437
+node;416660118;Apotheke an der Oper;52.5114912;13.3083188;;;Karsten Kiepert;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00; Su,PH off";yes;10627
+node;416660134;Minerva-Apotheke;52.5111671;13.305522100000001;;;Farhad Rasta;;"Mo-Fr 09:00-19:00; Sa 09:00-18:00; Su,PH off";yes;10627
+node;416660138;Bong-Apotheke;52.5096216;13.3054736;;;Thomas Bong e. K.;;"Mo-Fr 08:30-20:00; Sa 09:00-20:00; Su,PH off";yes;10627
+node;416660142;Goethe Apotheke;52.50902539999999;13.3067193;;;Sigrun Klemp;;"Mo-Fr 08:30-18:30; Sa 08:30-14:00";yes;10625
+node;419545768;Herz Apotheke;52.55143999999999;13.3827993;;;Ihsan Vurankaya;;"Mo-Sa 08:30-22:30; Su 10:00-22:30";yes;13357
+node;427670055;Aponeo;52.5120353;13.4967682;;;Konstantin Primbas e.K.;;Mo-Fr 09:00-18:00;yes;10365
+node;428114271;Central-Apotheke;52.441421399999996;13.3156473;;;Judit Gottwald;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";limited;12203
+node;428114289;Laurentius-Apotheke;52.4476658;13.3150432;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-14:00; Su off";limited;12203
+node;428293745;Apotheke am Mierendorffplatz;52.5255288;13.3050256;;;;;Mo-Fr 08:30-18:30, Sa 08:00-13:00;no;10589
+node;438089365;Apotheke im Storchenhof;52.548635999999995;13.504055300000001;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;
+node;438098504;Euro-Apotheke;52.470690299999994;13.441201;;;;;"Mo-Fr 08:30-19:00;Sa 09:00-18:00";yes;12055
+node;439234903;Kristinen-Apotheke;52.4512997;13.624489;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;
+node;439234905;Anker-Apotheke;52.45032969999998;13.6249106;;;;;Mo-Fr 08:00-19:00;yes;
+node;440322354;Mehringplatz Apotheke Berlin;52.499708000000005;13.3912545;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;10969
+node;440330654;Dafne Apotheke;52.48034599999999;13.436324200000001;;;;;"Mo-Fr 08:30-19:30; Sa 09:30-18:00";yes;
+node;440332220;Neukölln-Apotheke;52.480667700000005;13.435211;;;;;"Mo-Fr 08:30-19:30; Sa 09:30-19:30";limited;12043
+node;440333191;Forum Apotheke;52.48141720000001;13.434108400000001;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-18:00";yes;12043
+node;440335563;Libertas Apotheke;52.48508240000001;13.4266376;;;;;"Mo-Th 08:30-19:00; Fr 08:30-18:30; Sa 09:30-14:00";yes;12043
+node;440338666;Wilhelm Busch Apotheke;52.477312899999994;13.438493500000002;;;Petra Lorenz;;Mo-Fr 08:30-19:00, Sa 08:30-18:00;limited;12043
+node;440340785;Bären Apotheke;52.4734058;13.4405484;;;;;"Mo,Tu,Th 08:30-19:00; We 09:00-19:00; Fr 08:30-18:30; Sa 09:00-15:00";no;12043
+node;441512663;Ulrich-Apotheke;52.475959499999995;13.4265886;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";yes;12049
+node;441514950;Arminius Apotheke;52.4794042;13.4257606;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";limited;
+node;441878984;Sonnenblumen Apotheke;52.4699293;13.4631867;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;
+node;441878991;Hindenburg-Apotheke;52.474095299999995;13.4496732;;;Laia Saatkari;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";limited;12055
+node;442351144;Pelikan Apotheke;52.46694469999999;13.385963700000001;;;;;"Mo-Th 08:30-19:30; We,Fr 08:30-18:30; Sa 08:00-14:00";yes;12099
+node;442390303;Hafen-Apotheke;52.45682039999999;13.3844542;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";yes;12099
+node;442393071;Fortunatus Apotheke;52.4466168;13.3852622;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;12109
+node;442394335;Akazien Apotheke;52.44612519999999;13.385909;;;;;Mo-Fr 08:30-18:30;limited;12109
+node;442394341;Markt Apotheke;52.4451968;13.3856432;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";no;12109
+node;442705525;Hermann Apotheke;52.466503299999985;13.4316536;;;;;Mo,Tu,Th 09:00-18:30, Sa 09:00-13:00, We,Fr 09:00-18:00;yes;12051
+node;443464250;Glasow-Apotheke;52.4639518;13.4336361;;;Ralf Katzur;;"Mo,Tu,Th 09:00-18:30; We,Fr 09:00-18:00; Sa 09:00-12:00";yes;12051
+node;443604961;Apotheke zum Goldenen Einhorn;52.491903099999995;13.394299100000001;;;;;"Mo,Tu,Th 08:30-19:00; We,Fr 08:30-18:30; Sa 09:30-13:00";no;10961
+node;445821371;Orchideen-Apotheke;52.45644050000001;13.4372988;;;;;"Mo,Tu,Th 08:30-18:30; We,Fr 08:30-18:00; Sa 08:30-13:00";yes;
+node;445821378;Luisen-Apotheke;52.453325899999996;13.438621;;;;;"Mo-Th 09:00-18:30; We,Fr 09:00-18:00; Sa 09:30-12:30";yes;12347
+node;446759637;Brillant Apotheke;52.5001376;13.3065427;;;;;"Mo-Fr 08:30-20:00; Sa 09:00-19:00";yes;10709
+node;448811294;Avicenna Apotheke;52.4901283;13.4235773;;;;;;;10967
+node;448913486;Cecilien-Apotheke;52.546825;13.4126429;;;;;"Mo-Fr 09:00-18:00; Sa 10:00-14:00; PH off";yes;10437
+node;448915579;Arminius-Apotheke;52.53292179999999;13.4122894;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";yes;
+node;452946886;Koala-Apotheke;52.53592370000001;13.4743188;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";yes;13055
+node;452951395;Krumme Lanke Apotheke;52.4421453;13.2408724;;;Michaela Kretzschmar;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;14163
+node;453013649;Apotheke am Fennpfuhl;52.52801060000001;13.4679731;;;;;"Mo-Th 08:00-18:30; Fr 08:00-18:00; Sa 08:30-12:30";yes;10369
+node;454167250;Bartels Apotheke;52.55870300000001;13.413785;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";yes;
+node;454216844;Koala Apotheke;52.569669000000005;13.4033014;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-20:00";yes;13187
+node;454234943;Rusche-Apotheke;52.5152094;13.4853643;;;Ursula Stübner;;"Mo-Th 08:00-18:30; Fr 08:00-18:00";yes;10365
+node;456388989;Sterndamm-Apotheke;52.452556;13.5094857;;;Alexander Rogowski e.K.;;"Mo-Th 08:00-19:00; We,Fr 08:00-18:30; Sa 09:00-12:30";yes;12487
+node;456389100;Apotheke Johannisthal;52.445833099999994;13.506077200000002;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-13:00";yes;
+node;456414245;Pfauen-Apotheke;52.441258099999985;13.458841100000003;;;;;"Mo-Fr 08:00-18:30; Sa 08:30-13:30";yes;
+node;456421034;Fontane-Apotheke;52.4426146;13.4568396;;;;;"Mo-Fr 08:00-18:30; Sa off";yes;12351
+node;458915641;Adler Apotheke;52.57079660000001;13.4103966;;;;;Mo-Fr 08:30-19:00;limited;13187
+node;459166572;Zieten Apotheke;52.54496960000001;13.368633300000003;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";yes;13347
+node;459650830;Easy Apotheke;52.49122800000001;13.423493700000002;;easyApotheke;;;"Mo-Fr 09:00-20:00; Sa 09:00-19:00; Su off";yes;10967
+node;459653935;Paul-Lincke-Apotheke;52.49666359999999;13.4199367;;;Johannes Harter;;"Mo-Fr 08:00-20:00; Sa 08:30-16:00";yes;
+node;459673262;Lavendel Apotheke;52.5816372;13.4045453;;;;;"Mo-Th 09:00-18:30; Fr 09:00-18:00; Sa,Su off";yes;13156
+node;459785177;Steinbock-Apotheke;52.5595433;13.335479500000002;;;;;Mo-Fr 09:00-18:30, Sa 09:00-13:00;no;
+node;459799715;Müller-Apotheke;52.54517099999999;13.360830900000002;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-16:00";yes;
+node;460523245;Hohenzollern-Apotheke;52.5241148;13.1973279;;;H.W. Kopsch;;;yes;13595
+node;461626277;Europa Apotheke;52.516402199999995;13.4406999;;;Katrin Peter e. K.;;Mo-Fr 08:30-18:30, Sa 08:30-13:00;yes;10243
+node;471136927;NEO Apotheke;52.45591460000001;13.3796436;;;;;"Mo-Fr 09:00-18:30; Sa 10:00-16:00";;12103
+node;472371488;VivApotheke in Hellersdorf;52.53651489999999;13.603422;;;;;Mo-Fr 08:30-18:30;yes;12627
+node;475236781;Tasmania Apotheke;52.468337999999996;13.4305501;;;;;Mo-Fr 08:30-19:30;yes;12051
+node;476243460;Luna Apotheke;52.4857173;13.4660642;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;12435
+node;482797544;Sabelus XXL Apotheke;52.4010732;13.5617695;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";limited;12526
+node;499046359;Kastanien-Apotheke Pankow;52.5920493;13.3830878;;;;;Mo-Sa 08:00-20:00;yes;13158
+node;499963012;Stolpe-Apotheke;52.41574990000001;13.1456517;;;Bianca Dabbagh e.K.;;"Mo-Fr 08:30-18:30; We 08:30-18:00; Sa 08:30-13:00";no;14109
+node;502409526;Baumschulen-Apotheke;52.46423159999999;13.4857268;;;;;"We-Fr 08:00-19:00; Sa 08:00-15:00";yes;12437
+node;505990860;Rathaus Apotheke;52.494355899999995;13.3835242;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-14:00; Su,PH off";yes;10963
+node;508423804;hagen apotheke;52.47737659999999;13.2811924;;;;;"Mo-Fr 08:30-18:30;Sa 08:30-13:30";no;14199
+node;510624102;Albrecht-Apotheke;52.46098739999999;13.38514;;;Heike Borchardt;;"Mo,Tu,Th 08:30-19:00; We,Fr 08:30-18:30; Sa 08:30-14:00; Su,PH off";yes;12099
+node;516609077;Gorki-Apotheke;52.5898484;13.2842663;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-15:00";yes;13507
+node;518011179;Adler-Apotheke;52.58763549999999;13.2860212;;;;;Mo-Fr 08:30-19:00, Sa 09:30-13:30;yes;13507
+node;520518100;Opernviertel-Apotheke;52.51209809999999;13.3105177;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";yes;10625
+node;527503229;Sankt Rochus Apotheke;52.4728776;13.3071455;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;14197
+node;527503232;Rheinland Apotheke;52.4745972;13.3146337;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;14197
+node;527873296;Normannen-Apotheke;52.4195999;13.5403651;;;;;"Mo-Fr 08:00-18:30; Sa 08:30-13:00;PH off";no;12524
+node;528643412;Elefanten Apotheke;52.4247473;13.5276421;;;;;Mo-Fr 08:30-18:30, Sa 09:00-14:00;yes;
+node;529805424;Europa-Apotheke;52.45658629999999;13.5089986;;;;;Mo-Sa 09:00-19:00;yes;12439
+node;530687969;Sano Apotheke;52.4473124;13.5758981;;;Omar Obaid;;"Mo-Fr 08:00-19:00; Sa 10:00-19:00; PH off";no;
+node;534879643;Hohenzollerndamm Apotheke;52.48666889999999;13.2975626;;;Dr. Martin Krause;;"Mo-Th 08:30-18:30; We,Fr 08:30-18:00; Sa 08:30-13:00";yes;14199
+node;538057637;Apotheke im Forum Köpenick;52.4581201;13.578626600000002;;;Nicola Runge e.K.;;"Mo-Fr 08:00-20:00; Sa 09:00-20:00; PH off";yes;12555
+node;564123162;Nibelungen-Apotheke;52.5181103;13.496335000000002;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";yes;10365
+node;571800623;St. Hubertus;52.4215579;13.3702571;;;;;"Mo,Tu,Th,Fr 08:30-18:30; We 08:30-18:00; Sa 08:30-13:00";yes;12277
+node;573452398;Apotheke in der Volkradstraße;52.499528;13.507379800000002;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";yes;
+node;576608994;Apotheke im Gesundbrunnen-Center;52.549968699999994;13.3891501;;;;;Mo-Sa 09:00-20:00;yes;13357
+node;581322478;Brunnen Apotheke;52.5503414;13.3855631;;;;;"Mo,Tu,Th 08:30-19:00; We 08:30-15:00; Fr 08:30-18:30";yes;13357
+node;582854286;Ursus-Apotheke;52.41934080000001;13.3684082;;;;;"Mo-Fr 08:30-18:00; Sa 08:30-13:00";yes;12277
+node;585143218;Schwarze Adler Apotheke;52.38694399999999;13.3954661;;;;;;no;12307
+node;585144206;Bahnhof-Apotheke;52.386890099999995;13.3997371;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00; PH off";no;12305
+node;585473264;Lessing Apotheke;52.542087599999995;13.3701655;;;Apotheker Baha Amouri e.K.;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00; Su off";yes;13347
+node;588141093;Linden Apotheke;52.38653990000001;13.404185;;;;;"Mo-Fr 08:00-18:30; Sa 08:30-13:30";limited;12305
+node;588552725;Katharinen Apotheke;52.549441299999984;13.4553976;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-13:00";no;
+node;588552733;Medicus Apotheke;52.5492679;13.456262600000002;;;;;"Mo-Fr 08:00-19:30; Sa 08:30-14:00";yes;13088
+node;588557536;Sky Apotheke am Antonplatz;52.5487495;13.4506766;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-14:00";yes;13086
+node;593781884;Lankwitz-Apotheke;52.435281299999986;13.343722200000002;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";no;12247
+node;595536654;MediosApotheke Hackescher Markt;52.524593800000005;13.4032424;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-19:00";no;10178
+node;602531459;Pluspunkt Apotheke Wedding;52.5492948;13.353572;;;;;"Mo-Fr 08:15-20:00; Sa 08:30-16:00";yes;13353
+node;604938266;Apotheke im Karstadt Hermannplatz;52.4874834;13.423894200000001;;;Susanne Marquardt;;Mo-Sa 09:00-20:00;yes;10967
+node;608524481;Prenz’l-Apotheke;52.55024099999999;13.4142615;;;;;"Mo-Fr 08:00-20:00; Sa 08:30-20:00; PH off";yes;10439
+node;609142032;Elch Apotheke;52.429256499999994;13.4536256;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-20:00";yes;
+node;609146610;Gropius-Apotheke;52.429579999999994;13.4570794;;;;;;yes;12353
+node;610199208;Tempelritter-Apotheke;52.3865161;13.4066989;;;;;"Mo-Fr 08:00-18:30; Sa 08:30-13:00";yes;12305
+node;616284712;Apotheke am Rathaus;52.5161624;13.4787925;;;Sliman Dirki;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00; PH off";limited;10367
+node;621584928;Gerhart-Hauptmann-Apotheke;52.43737149999998;13.447768900000002;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-13:00";yes;12359
+node;627415668;Gesundbrunnen- Apotheke;52.55057;13.3842488;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";yes;13357
+node;630214264;Apotheke an der Rhinstraße;52.51361659999999;13.5179566;;;;;Mo-Sa 08:30-19:30;yes;
+node;630214267;Bahnhof-Apotheke;52.5137587;13.5198414;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00";yes;
+node;631755396;Elch-Apotheke;52.6331147;13.2887685;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;13465
+node;635821864;Pantherapotheke;52.412392999999994;13.3208889;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";yes;12209
+node;636005023;Rathaus-Apotheke Schmargendorf;52.47670489999999;13.288994;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-14:00";yes;14199
+node;638953355;Weitling-Apotheke;52.5060983;13.4957547;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-16:00";no;10317
+node;644658975;Jülicher Apotheke;52.5539606;13.3923404;;;;;"Mo,Tu,Th,Fr 09:00-18:00; We 09:00-14:00; Sa 08:30-13:00";yes;13357
+node;645677466;die Neue Apotheke;52.526532799999984;13.335731300000003;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-18:00";yes;10551
+node;645677469;Arminius Apotheke;52.5268142;13.3365504;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-14:00";yes;10551
+node;646579859;Ansbacher Apotheke;52.5034922;13.3429298;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-16:00";yes;10787
+node;647943536;Hubertus Apotheke am Salzufer;52.518355699999994;13.322868100000003;;;;;"Mo-Fr 08:30-18:00; Sa,Su off";yes;10587
+node;650633578;Ludwigs-Apotheke;52.52356900000001;13.3363347;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-14:00";yes;10555
+node;653256888;Apotheke am Asternplatz;52.4488384;13.3038018;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-13:30";yes;12203
+node;653289588;easyApotheke;52.541044799999995;13.4403303;;easyApotheke;;;"Mo-Fr 08:30-19:00; Sa 09:00-16:00";yes;10409
+node;656006001;Düppel Apotheke;52.4234139;13.2419523;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;14165
+node;656210648;Mariannen-Apotheke;52.532545699999986;13.1556432;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00; Su,PH off";yes;13591
+node;658444284;Apotheke am Augustenburger Platz;52.54184899999999;13.3503744;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-14:00";yes;13353
+node;658612646;Schildhorn Apotheke;52.4607968;13.324152200000002;;;;;"Mo-Sa 09:00-20:00; Su,PH off";yes;12163
+node;661092195;Atlantis-Apotheke;52.51308809999999;13.3048087;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-16:30";yes;10585
+node;661126965;Flora-Apotheke;52.5172034;13.3043479;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";yes;
+node;663008203;Karlsbader Apotheke;52.478053599999996;13.2821088;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";no;14193
+node;665535053;Pestalozzi Apotheke;52.5080757;13.3018276;;;Sarab Ridha;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";no;10627
+node;666388871;Erasmus-Apotheke;52.48860030000001;13.3013735;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";no;10713
+node;666961028;Siemensstadt Apotheke;52.5379148;13.279958500000001;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";yes;13627
+node;667211329;Fürstenplatz-Apotheke;52.512316699999985;13.2653691;;;;;"Mo,Tu,Th,Fr 08:00-19:30; Sa 09:00-14:00; We 08:00-14:00";yes;
+node;667211352;Quant Apotheke;52.51063800000001;13.2698479;;;;;"Mo,Tu,Th 08:00-19:00; We,Fr 08:00-18:00; Sa 09:00-13:00";yes;14052
+node;667211375;Raphael-Apotheke;52.519193099999995;13.2572734;;;Inh. Kristin Kneuß e.K.;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;14052
+node;667211386;Reichs-Apotheke;52.515875300000005;13.2609904;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00";limited;
+node;667211398;Apotheke am Steubenplatz;52.5160655;13.261601400000002;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-13:30";yes;14052
+node;668246090;Barbara-Apotheke;52.449704499999996;13.2530168;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";limited;14169
+node;668899440;Apotheke am Tierpark;52.504119;13.5124502;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-12:00";yes;10315
+node;670658040;Königin-Luise-Apotheke;52.497790299999984;13.3609228;;;;;"Mo-Fr 08:30-20:00; Sa 08:30-14:00";yes;10783
+node;671210857;Annen-Apotheke;52.58365;13.301616;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00; PH off";no;13509
+node;671390314;VitaCura-Apotheke;52.523574100000005;13.5438535;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-13:00";yes;12681
+node;671488820;Apotheke am S-Bahnhof Storkower Straße;52.5239265;13.4623091;;;Sylke Möller;;Mo-Sa 09:00-18:00;yes;10249
+node;671696780;Westend - Apotheke;52.5185444;13.2787702;;;;;"Mo-Fr 08:30-18:00; Sa 09:00-12:00";yes;14050
+node;674086086;Kronen-Apotheke;52.54806359999999;13.2013519;;;;;"Mo-Fr 08:00-18:00; Sa 09:00-13:00";yes;13585
+node;674316062;Gervinus-Apotheke;52.50448919999999;13.307555100000002;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-16:00";no;10629
+node;678295768;Waldsee-Apotheke;52.6208593;13.3136912;;;;;;yes;13467
+node;689563385;Christophorus-Apotheke;52.457614299999996;13.3217071;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-18:00";limited;12163
+node;691484619;Althoff-Apotheke;52.45801359999999;13.329950700000001;;;Apothekerin Daniela Stoepel e.K.;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;12169
+node;691484670;Dr. Krachts Apotheke;52.468118499999996;13.332020900000002;;;Abdolreza Morad-Reza;;"Mo-Fr 08:30-19:00; Sa 09:00-16:00";no;12161
+node;699533239;Gartenstadt Apotheke;52.404124200000005;13.5072138;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";limited;12355
+node;699538009;Apotheke Alt-Rudow;52.42010629999999;13.4920406;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-14:00";yes;12357
+node;703042593;Paracelsus Apotheke;52.429269799999986;13.4779131;;;;;"Mo-Fr 08:30-18:00; Sa 08:00-14:00";no;12357
+node;703802174;Meraner Apotheke;52.4866223;13.3386726;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-13:00";yes;10825
+node;715203766;Möwen-Apotheke;52.4729719;13.2991581;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-13:00";yes;14199
+node;715203882;Fortuna-Apotheke;52.488820399999994;13.322473200000001;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:30; Su off";yes;10717
+node;715203887;Josephinen Apotheke;52.49015130000001;13.3227162;;;;;;yes;
+node;715911607;Suarez-Apotheke;52.5103771;13.2975749;;;Nelli Smachtin;;"Mo-Fr 08:30-19:00; Sa 09:00-15:00";yes;14057
+node;718143915;Apotheke am Funkturm;52.506315900000004;13.2842068;;;;;"Mo,Tu,Th,Fr 08:30-18:30; We 08:30-18:00; Sa 08:30-13:00";no;14057
+node;730172940;Goeben-Apotheke;52.4931996;13.3667198;;;Mojgan Yousefi Kamangar e.K.;;"Mo-Fr 09:00-18:30; Sa 09:00-13:00";yes;10783
+node;733902771;Centrum Apotheke;52.42542749999999;13.4630198;;;;;;yes;12353
+node;737199963;Pegasus Apotheke;52.5268169;13.4784367;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";limited;
+node;738996191;Kurmark Apotheke;52.499449500000004;13.3637956;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-13:30";no;10785
+node;747517159;Nordend-Apotheke;52.589305800000005;13.401463600000001;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-12:00";no;
+node;753467604;Mendel Apotheke;52.5714517;13.4108555;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-13:00";yes;13187
+node;762002923;Heide-Apotheke;52.48704020000001;13.5749614;;;Birgit Schmidt e.Kfr.;;"Mo-Fr 08:30-18:30, Sa 09:00-12:30; PH off";no;12621
+node;765341424;Eulen Apotheke;52.565709299999995;13.397257;;;;;Mo-Fr 08:30-19:00, Sa 09:00-14:00;yes;13187
+node;765566778;Adler-Apotheke;52.43214489999999;13.2591411;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00; Su,PH off";yes;14169
+node;766742178;Sternlicht Apotheke;52.4904307;13.4094009;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-14:00";yes;10967
+node;766875155;Elefanten-Apotheke;52.43822839999999;13.5480046;;;Anne Poppe e.K.;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;12489
+node;766875188;Adler Apotheke;52.4360165;13.543222;;;Oscar Wilfried Lienau e.K.;;Mo-Fr 08:00-19:00, Sa 09:00-14:00;yes;12489
+node;769270129;Kopenhagener Apotheke;52.5743966;13.3595153;;;;;Mo-Fr 08:30-18:30, Sa 08:30-13:00;limited;13407
+node;769318454;Lindauer-Apotheke;52.573665;13.3594452;;;Azam Azadegan e.K.;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00; PH,Su off";limited;13409
+node;769365479;Apotheke am Moritzplatz;52.502898699999996;13.4129908;;;;;"Mo,Tu,Th,Fr 08:30-19:00; We 09:00-13:00";yes;10969
+node;769847926;Urban-Apotheke;52.49086440000001;13.4158532;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;10967
+node;769847931;Körte-Apotheke;52.4919934;13.4137912;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-13:00";yes;10967
+node;770651959;Sonnen Apotheke;52.554400199999996;13.4317943;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00";limited;13086
+node;771332595;Bavaria-Apotheke;52.49791009999999;13.340083000000002;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-16:00";yes;10777
+node;775342929;Germania Apotheke;52.4589046;13.322341700000003;;;Apothekerin Sabine Brakowski e.K.;;"Mo-Fr 08:30-19:00; Sa 09:30-18:30; Su,PH off";yes;12163
+node;775578347;Prenzlauer Apotheke;52.5359441;13.4218153;;;;;"Mo-Fr 09:00-19:30; Sa 09:00-18:00";yes;10405
+node;795255878;Brigitten-Apotheke;52.45095379999999;13.3409295;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";yes;12169
+node;808390982;Brunnen-Apotheke;52.5678366;13.5256044;;;;;Mo-Fr 08:00-19:30, Sa 09:00-12:00;yes;13057
+node;808390994;Auxilia-Apotheke;52.564830099999995;13.5075743;;;;;"Sa 08:00-12:30; Fr 08:00-18:30; Mo-Th 08:00-19:00";yes;13051
+node;808391031;Pluspunkt Apotheke im Warnitzer Bogen;52.56739139999999;13.5180117;;;;;"Mo-Fr 08:30-18:00; Sa 08:30-13:00";yes;13057
+node;813811847;Curtius-Apotheke;52.442900499999986;13.2960084;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;12205
+node;816598789;Apotheke am Hansaplatz;52.51877469999999;13.3429225;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-13:00";yes;10557
+node;833390882;easyApotheke;52.464665399999994;13.3261851;;easyApotheke;Mehmet Geyik e.K.;;"Mo-Fr 09:00-20:00; Sa 10:00-20:00";yes;12163
+node;848509143;Apotheke Berg;52.49927819999999;13.4196742;;;;;"Mo,Tu,Th 08:30-19:00; We,Fr 08:30-19:00; Sa 10:00-18:00";yes;10999
+node;849520185;Wilhelm-Voigt-Apotheke;52.44143049999999;13.5873859;;;;;"Mo-Fr 08:00-20:00, Sa 08:00-16:00; PH off";yes;12559
+node;853806321;Grüne Apotheke Lichtenrade;52.4119945;13.4022416;;;Apothekerin Franziska Bukowski;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";no;12305
+node;854996274;Utrechter Apotheke;52.5506076;13.3630015;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00";no;13347
+node;858380325;Apotheke Charlottenburg-Nord;52.53538609999999;13.286366100000002;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;
+node;858382391;Sanimedius-Apotheke im Plaza Marzahn;52.5555383;13.5592685;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-14:00";yes;12687
+node;876479038;Grünberger Apotheke;52.51214009999999;13.4551452;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-13:00";yes;10245
+node;928338769;Zieten Apotheke;52.498115799999994;13.384792;;;(Ulrike Zimmermann);;"Mo-Fr 08:00-18:30; Sa 09:00-14:00";no;10963
+node;931658983;Lucia-Apotheke am Wildenbruchplatz;52.484367;13.4434517;;;;;Mo-Fr 09:00-18:30;yes;
+node;933513518;Neue Apotheke am See;52.439091;13.2153341;;;;;Mo-Sa 08:00-20:00;yes;14129
+node;956306643;Apotheke Q205;52.5122639;13.3903812;;;;;Mo-Fr 08:00-20:00, Sa 09:00-19:00;yes;10117
+node;977657079;Achilles Apotheke;52.617189100000004;13.490385800000002;;;;;;limited;13125
+node;983454566;Friedrich Apotheke;52.5136594;13.4731765;;;Katrin Springer;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00; PH off";no;10247
+node;992805862;Flora-Apotheke;52.4372593;13.3451962;;;;;"Mo,Tu,Th 08:30-18:30; We,Fr 08:30-18:00; Sa 08:30-13:00";no;12247
+node;998713196;Wannsee Apotheke;52.4196142;13.1575816;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;14109
+node;1008402120;Punkt Apotheke;52.4180116;13.436734;;;;;"Mo-Fr 08:30-18:00; Sa 08:30-13:00";yes;
+node;1018833559;Mozart Apotheke;52.4976442;13.4306508;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-14:00";no;10999
+node;1020532583;Schmargendorfer Apotheke;52.4743541;13.2944008;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";no;14199
+node;1032978552;Stern-Apotheke;52.53579500000001;13.4961485;;;;;Mo-Sa 08:30-19:00;yes;13055
+node;1037241970;Damian Apotheke;52.55116869999999;13.163271;;;;;;yes;13589
+node;1038217551;Falken-Apotheke Spandau;52.5475503;13.1771981;;;;;"Mo,Tu,Th 08:00-19:00; We,Fr 08:00-18:30; Sa 08:00-14:00";yes;13583
+node;1042258380;Berolina Apotheke;52.4363152;13.2608479;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;14169
+node;1051174903;Süd-Apotheke;52.4107881;13.2617669;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00; Su off";yes;14165
+node;1075295993;Stadt Apotheke;52.4344191;13.2604293;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-16:00; Su,PH off";yes;14169
+node;1082750111;Staufen-Apotheke;52.437533900000005;13.261569200000002;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00";no;14169
+node;1083676123;Prinzen Apotheke;52.501084899999995;13.408340600000002;;;;;"Mo,We,Fr 08:30-18:30; Tu,Th 08:30-19:00; Sa 09:00-14:00";yes;10969
+node;1094105653;Baba Jaga;52.52771370000001;13.5386173;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;
+node;1110626664;Apotheke zum goldenen Anker;52.4903456;13.4277648;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-14:00";limited;
+node;1124601226;Park-Apotheke;52.633925600000005;13.2896726;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-14:00";no;13465
+node;1124612201;Ludolfinger-Apotheke;52.6325774;13.2869838;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";yes;
+node;1143798306;pro-samed Apotheke;52.5440277;13.4416805;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00; Su off";yes;10409
+node;1145597661;Apotheke am Tegeler See;52.57743690000001;13.2791669;;;;;Mo-Fr 08:30-18:00, Sa 08:30-13:00;;13507
+node;1163265616;Borussia-Apotheke;52.51362530000001;13.2956492;;;Ursula Geibel;;Mo-Fr 09:00-18:00;limited;14059
+node;1169920988;easyApotheke Mariendorf;52.438822099999996;13.380108;;easyApotheke;;;Mo-Sa 09:00-18:00;yes;12107
+node;1200964445;WitzlebenApotheke24;52.510311699999995;13.2827609;;;Witzleben Apotheke;;"Mo,Tu,Th 08:00-19:00; We,Fr 08:00-18:30";yes;14057
+node;1200964491;WitzlebenApotheke26;52.5102306;13.281428299999998;;;Witzleben Apotheke;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;14057
+node;1212618057;Sonnenschein-Apotheke;52.478759499999995;13.5243036;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-13:00";yes;
+node;1234501223;Paul Gerhardt Apotheke;52.55432449999999;13.3456342;;;;;"Mo-Fr 08:30-19:30; Sa 09:00-14:00";limited;
+node;1235266856;Sonnen-Apotheke;52.4805013;13.6013424;;;Monika Wahren e.K.;;"Mo-Fr 08:30-18:30; Sa 09:00-12:00; PH off";yes;12623
+node;1236581643;Pluspunkt Apotheke Müllerstraße;52.5501219;13.3530389;;;;;"Mo-Fr 08:00-20:00; Sa 08:00-18:00";yes;13353
+node;1246989790;Apotheke zum Schwan;52.504348799999995;13.409274200000002;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";limited;10969
+node;1252777062;Schloss-Apotheke Tegel;52.588565300000006;13.2843949;;;Apotheker Hani Ayade;;"Mo-Fr 08:00-19:00; Sa 09:00-16:00";yes;13507
+node;1252944782;Alte Spree Apotheke;52.589547399999994;13.2826806;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:30";yes;13507
+node;1257075697;Apotheke am Friedrichshain;52.5237553;13.439891700000002;;;;;"Sa 08:30-12:30; Mo-Fr 08:00-18:30";yes;
+node;1298246171;Vineta Apotheke;52.54054179999999;13.3938688;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;13355
+node;1298511709;Apotheke am Gartenplatz;52.5380192;13.3854708;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00";yes;
+node;1315650095;Kur-Apotheke;52.49204319999999;13.3869021;;;;;Mo-Fr 08:30-19:30, Sa 09:30-14:30;yes;10961
+node;1336599080;Dr. Rothes Apotheke;52.45530259999999;13.5770429;;;Gunnar Arendt e.K.;;"Mo-Fr 08:00-19:00; Sa 08:30-13:00; PH off";limited;12555
+node;1336725194;Stadt-Apotheke;52.444917999999994;13.5747201;;;Susanne Mackeldey e.K.;;"Mo-Fr 08:00-18:00; Sa 09:00-13:00; PH off";yes;12555
+node;1336788980;Süd-Apotheke;52.427899000000004;13.5848235;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-13:00; PH,Su off";yes;12557
+node;1338226878;Jumbo Apotheke;52.497339100000005;13.5217595;;;;;"Mo-Fr 08:30-20:00; Sa 08:30-16:00; PH off";yes;10319
+node;1365702036;Haselhorster Apotheke;52.5424964;13.2388868;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;13599
+node;1374215630;Immanuel Apotheke;52.53307499999999;13.4221508;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;10405
+node;1375170411;Kiwi Apotheke;52.55769699999999;13.2189479;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00; Su,PH off";limited;13587
+node;1397070332;Dominicus Apotheke;52.4824434;13.3497166;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;10827
+node;1400224784;Fritz Apotheke;52.4370757;13.388732;;;Michael Lindenbacher;;"Mo-Fr 08:30-18:30; Th 08:30-19:00; Sa 08:30-13:30";yes;12107
+node;1413247085;Apotheke 97;52.536918899999996;13.2672695;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:30";yes;13629
+node;1419134521;Central Apotheke;52.536905699999984;13.268403200000002;;;Frau Atanaska Winkler;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";yes;13629
+node;1434256844;Apotheke am Bayerischen Platz;52.48859829999999;13.3390663;;;Helma Heinrici;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";limited;10779
+node;1492336686;Esmarch Apotheke;52.532136;13.431803;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-13:00";yes;10407
+node;1498608858;Apotheke Biesdorf-Süd;52.50607060000001;13.5582187;;;Gabriele Heyn;;Mo-Sa 09:00-19:00;yes;12683
+node;1504564883;Warschauer Apotheke;52.5090106;13.451441000000003;;;Gisela Brückl;;"Mo-Fr 08:30-14:00,15:00-18:30; Sa 10:30-13:30";yes;10243
+node;1527942471;Apotheke Impuls;52.48463879999999;13.4285441;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;12043
+node;1552051348;MediosApotheke;52.5260899;13.3875545;;;;;Mo-Su 08:00-24:00;yes;10117
+node;1575512027;Tannenberg Apotheke;52.44602629999999;13.329341000000001;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00; Su,PH 10:00-18:00";yes;12167
+node;1577132742;Oskar Helene Apotheke;52.4513152;13.269836;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00; Su,PH off";yes;14195
+node;1585171546;Fleming Apotheke;52.609731499999995;13.3294059;;;;;"Mo-Fr 08:30-18:30;Sa 08:30-14:00";yes;13469
+node;1597559553;Apotheke am Schlosspark;52.58111799999999;13.402459700000001;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00; PH off";yes;13156
+node;1617416107;aktiv Apotheke;52.42316929999999;13.3137602;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-15:00";yes;12207
+node;1617419904;Apotheke im Schweizer Viertel;52.426893199999995;13.303666100000001;;;;;"Mo-Fr 08:30-20:00; Sa 09:00-16:00";yes;12205
+node;1624585364;Vital-Apotheke;52.49888030000001;13.4203076;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-16:00";yes;10999
+node;1628927163;Apotheke im Pankeviertel;52.5881829;13.428273600000002;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";;13127
+node;1632227368;Linden Apotheke;52.417433599999995;13.3059616;;;;;"Mo-Fr 08:30-18:00; Sa 08:30-13:00";yes;12207
+node;1636830086;Blaue Apotheke;52.49394360000001;13.4601281;;;Robert Roggenbuck;;"Mo-Fr 08:30-18:30; Sa 09:30-14:00";yes;12435
+node;1640616159;Bären-Apotheke;52.59508199999999;13.3333432;;;;;"Mo-Fr 08:00-19:30; Sa 08:00-14:30";yes;13437
+node;1654832841;Hausapotheke - Vivantes Klinikum Neukölln;52.436742599999995;13.4564982;;;;;;no;12351
+node;1655132802;Sundgauer Apotheke;52.438510799999996;13.2707693;;;;;;yes;
+node;1659884034;Märkische Apotheke;52.54834679999998;13.3562137;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-18:00";yes;13353
+node;1663350357;BEZIRKSapotheke;52.51018729999999;13.4511485;;;Melanie Dolfen e. Kfr.;;"Mo-Fr 08:00-20:00; Sa 09:00-18:00";yes;10243
+node;1678448395;Forst Apotheke;52.465285599999994;13.3104944;;;;;"Mo-Fr 08:30-18:00; Sa 08:00-13:00";no;12163
+node;1703401473;Apotheke am Schillerplatz;52.471767;13.3235696;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";no;12161
+node;1704256871;Lichtenrader Apotheke;52.3981287;13.3914745;;;;;"Mo-Fr 08:00-20:00; Sa 08:00-18:00";yes;12305
+node;1719664188;Apotheke am Anton-Saefkow-Platz;52.528622799999994;13.471475400000001;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;10369
+node;1721061596;Apotheke in Nikolassee;52.43000810000001;13.1949978;;;;;"Mo-Fr 09:00-18:30; Tu,Th 09:00-19:00; Sa 09:00-13:00";yes;14129
+node;1777151508;Apotheke am Stadtrand;52.57083429999999;13.5635073;;;;;Mo-Fr 08:30-18:30;yes;12689
+node;1782386007;Zieten Apotheke Rudow;52.41844210000001;13.496804;;;Filiallt. Sandra Falkenau;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";yes;12355
+node;1828707071;Rennbahn Apotheke;52.56031109999999;13.4591942;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";yes;13086
+node;1833509167;Apotheke am Bahnhof Grunewald;52.4870726;13.2640301;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;14193
+node;1845158730;Wollank Apotheke;52.56360229999999;13.3910866;;;Gisela Poser;;"Mo-Fr 08:00-18:30; Sa 09:00-14:00";no;13359
+node;1863567226;Schwanen Apotheke;52.532715;13.43824;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";yes;10407
+node;1866461768;Ostsee-Apotheke;52.546193099999996;13.4455087;;;;;Mo-Fr 08:00-19:00;yes;10409
+node;1905963630;Fasanen-Apotheke;52.4987789;13.3248652;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";limited;10719
+node;1906515104;Emser Apotheke;52.4967633;13.3198452;;;;;"Mo,Tu,Th,Fr 09:00-18:00; Sa 09:00-13:00; We 09:00-15:00";yes;10719
+node;1914403852;Ranke-Apotheke;52.5000244;13.3305311;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00; Su,PH off";yes;10719
+node;1914552632;Apotheke am Ludwigkirchplatz;52.497040299999995;13.3234022;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";no;10719
+node;1933362462;Viereck Apotheke;52.63603189999999;13.493417600000003;;;;;Mo-Fr 08:00-19:00, Sa 08:00-13:00;yes;13125
+node;1948961324;Charlotten-Apotheke;52.518856;13.2898547;;;;;Mo-Fr 08:30-18:30, Sa 08:30-13:30;yes;
+node;1948961329;Falken-Apotheke;52.51524890000001;13.290931;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-13:30";no;14059
+node;1963129662;Atoll-Apotheke;52.467406100000005;13.4318149;;;C. Reiners e.K.;;Mo-Fr 09:00-19:00;yes;12051
+node;2013009698;Cottbusserdamm Apotheke;52.49513319999999;13.4204287;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-15:00";yes;
+node;2018710520;Ibis Apotheke;52.42571569999999;13.4838189;;;;;Mo-Fr 08:30-18:30, Sa 08:30-13:00;yes;12357
+node;2026247343;Adler Apotheke;52.52472219999999;13.5580924;;;;;"Mo-We 09:00-19:00; Th-Sa 09:00-20:00;Su off";yes;
+node;2026466974;Abacus Apotheke;52.5345031;13.5521929;;;;;;;
+node;2038240175;Sanimedius-Apotheke im Spreecenter;52.521151599999996;13.5874121;;;Ronald Clasen;;"Mo-Fr 08:00-19:00, Sa 08:00-16:00; PH off";yes;12619
+node;2039162001;Apotheke Wutzky-Center;52.42279789999999;13.4754642;;;;;"Mo-Fr 08:30-19:00; Sa 08:00-16:00";yes;
+node;2046807703;Wartenberger Apotheke;52.57306890000001;13.504904100000001;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-13:00";limited;13059
+node;2098147261;Doc Maier;52.44675449999999;13.3418127;;;;;"Mo-Sa 08:30-19:00; Su 08:30-14:00";yes;12247
+node;2098221272;Markus Apotheke;52.44810269999999;13.3397351;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00";yes;12167
+node;2110613369;Oldenburger Apotheke;52.530257099999986;13.335932700000003;;;Christian Milhahn;;"Mo,Th 08:30-19:00; Tu,We,Fr 08:30-18:30; Sa 08:30-13:00";yes;10551
+node;2139861333;Meine Apotheke;52.4996926;13.3125891;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";yes;10707
+node;2169170618;Preussen Apotheke Spandau;52.5368301;13.2024674;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-15:00; Su,PH off";yes;13597
+node;2181178545;Linden Apotheke;52.506761000000004;13.398262;;;;;"Mo-Fr 09:00-18:00; Sa 09:30-13:00";yes;
+node;2251295178;Masuren-Apotheke OHG;52.50940330000001;13.2223693;;;Homam Rasheed, Dr. Fadi Mansoor;;;yes;14055
+node;2273462199;easyApotheke;52.568490000000004;13.5108472;;easyApotheke;;;;yes;13059
+node;2274239284;Vitalis Apotheke;52.5688682;13.5162437;;;;;Mo-Fr 08:00-19:00, Sa 08:00-13:00;yes;
+node;2288127751;Moabiter Apotheke;52.52435739999999;13.3522408;;;;;"Mo-Fr 08:00-18:30, Sa 08:00-14:00; PH off";no;10559
+node;2320532525;Havelland-Apotheke;52.45312859999999;13.1422529;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;14089
+node;2320629344;Apotheke am Wittenbergplatz;52.5035594;13.3444884;;;;;Mo-Fr 08:30-18:30;yes;10787
+node;2325407968;Dafne-Apotheke;52.4684978;13.4427459;;;;;Mo-Sa 09:00-20:30;yes;12055
+node;2423122288;Octopus Apotheke;52.6065358;13.3192004;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-13:00";;13469
+node;2424327600;Süd-Apotheke;52.476628700000006;13.6007627;;;Heike Steinhausen;;"Mo-Fr 08:00-18:30, Sa 08:00-12:30; PH off";yes;12623
+node;2429162139;Löwen Apotheke;52.56963359999999;13.3297842;;;;;Mo,Tu,Th,Fr 08:30-18:30, We 08:30-18:00, Sa 08:30-14:00;limited;13403
+node;2439759182;Pluspunkt Apotheke Charlottenburg;52.5101677;13.272480700000001;;;;;"Mo-Fr 08:30-19:00; Sa 09:30-16:00";limited;14052
+node;2445456645;Sylter Apotheke;52.48665709999998;13.3215081;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";limited;10715
+node;2476268050;Blitz Apotheke;52.47884100000001;13.3299374;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";yes;10715
+node;2484338009;Sonnenapotheke;52.4835661;13.4358446;;;Mohammed El Azouzi;;"Mo-Fr 08:30-19:00; Sa 09:00-14:00";yes;12045
+node;2496651331;Kreuzberg Apotheke;52.4902187;13.3870554;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-14:00";limited;10961
+node;2516120286;Flora-Apotheke seit 1880;52.55043189999999;13.4597629;;;;;Mo-Fr 08:00-19:00, Sa 09:00-13:00;no;13088
+node;2541179150;Apotheke Zum Elefanten;52.476208199999995;13.4391375;;;;;"Mo-Fr 08:30-19:30; Sa 09:00-18:00";no;12043
+node;2557710789;Spree-Apotheke;52.5253262;13.342000000000002;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;10555
+node;2638963983;Richthofen-Apotheke;52.483106600000006;13.3826359;;;;;"Sa 08:30-14:00; Mo-Fr 08:00-18:30";yes;12101
+node;2713665583;Apotheke im Bismarck-Karree;52.511709399999994;13.3046182;;;;;Mo-Fr 08:00-19:00;yes;10627
+node;2717366804;Stadtpark-Apotheke;52.4523689;13.3335365;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-14:00";no;12167
+node;2779341569;Saint Charles Apotheke;52.498514699999994;13.317788;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-16:00";limited;10707
+node;2782835460;Sanitas Apotheke;52.6078978;13.3255639;;;;;"Mo-Fr 08:30-20:00; Sa 09:00-20:00";yes;13469
+node;2796710201;Apotheke Hackesches Quartier;52.5221812;13.402481300000002;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;10178
+node;2820029176;Apotheke an der Alten Schule;52.43874160000001;13.5506904;;;Stephan Liebreich e.K.;;"Mo-Fr 08:00-19:30; Sa 08:00-15:00";no;12489
+node;2829271312;Regenbogen Apotheke;52.55379249999999;13.3593721;;;Stefan Rezepa e.K;;"Mo-Tu,Th-Fr 08:30-19:00; We 08:30-15:00";yes;13347
+node;2857712871;Achat Apotheke;52.534761799999984;13.3977794;;;;;"Mo-Fr 08:00-19:00; Sa 08:30-13:30";yes;10115
+node;2864467602;Post-Apotheke Buckow;52.424585900000004;13.4360037;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;
+node;2864491450;Apotheke Alt-Buckow;52.423100299999994;13.435689300000002;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00";yes;
+node;2867498526;Gertrauden Apotheke;52.4205157;13.4273954;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";yes;
+node;2872185601;Kloster-Apotheke;52.532346499999996;13.197530400000002;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-13:00; Su,PH off";yes;13581
+node;2917786907;Apotheke am Steubenplatz;52.5160627;13.261601600000002;;;;;"Mo-Fr 09:00-18:30; Sa 09:00-13:00";;14052
+node;2952546845;Neue Apotheke;52.57035960000001;13.3612245;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:30; Su off";no;
+node;2952573359;Residenz Apotheke;52.56676259999999;13.3630766;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";no;
+node;2969309057;Märkische Apotheke Kladow;52.4549833;13.1446817;;;;;"Mo-Th 08:30-19:00; We,Fr 08:30-18:30; Sa 08:30-14:00";yes;14089
+node;2998135448;Amtsfeld-Apotheke;52.44055879999999;13.5939645;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-12:00";yes;12559
+node;3012143573;Falken-Apotheke;52.46440700000001;13.5138972;;;Ute Nitzer;;"Mo-Fr 08:00-18:30; Sa 08:30-13:00";no;12459
+node;3041745938;Manteuffel-Apotheke;52.4604721;13.3763073;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;12103
+node;3045761935;Amsel-Apotheke;52.57451840000001;13.509401700000002;;;;;"Mo-Fr 08:00-20:00; Sa 08:00-15:00";;13059
+node;3072343433;Apotheke am Viktoria-Luise-Platz;52.49524789999999;13.341068100000001;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";yes;10777
+node;3080747241;Ginkko-Apotheke;52.63432559999998;13.494385300000001;;;;;Mo-Fr 08:00-19:30;yes;13125
+node;3089158088;Leuchtturm Apotheke;52.61691590000001;13.3070697;;;Claudia Spieß e.K.;;"Mo-Fr 08:00-19:00, Sa 08:30-14:00;Su,PH off";yes;13467
+node;3112851447;Schlosspark-Apotheke;52.63483769999999;13.4955488;;;;;Mo-Fr 08:00-19:00, Sa 09:00-15:00;yes;13125
+node;3118107216;Apotheke am ukb;52.519174799999995;13.5645435;;;;;Mo-Fr 08:00-19:00, Sa 09:00-13:00;yes;
+node;3157838594;Apotheke zum Zirkel;52.46720359999999;13.342445000000001;;;Jürgen Drescher;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";no;12157
+node;3157917186;Lauter Apotheke;52.47133959999999;13.334733600000002;;;Anna Fredrich e.K.;;"Mo-Fr 09:00-18:30; Sa 09:00-14:00";yes;12159
+node;3167654650;Apotheke am Hermannplatz;52.487533299999996;13.425615100000002;;;;;"Mo,Tu,Th,Fr 08:30-19:00; We 08:30-18:00; Sa 09:00-14:00";limited;
+node;3206454429;Karolinen Apotheke;52.5912527;13.28343;;;Herr S. Stoof;;"Mo,Tu,Th 08:30-19:00; We,Fr 08:30-18:30";yes;13507
+node;3216711374;Eick Apotheke;52.499860500000004;13.4247979;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-15:00";no;10997
+node;3229138232;Diana Apotheke;52.4622982;13.3262168;;;;;"Sa 09:00-19:00; Mo-Fr 08:30-19:30; Su,PH off";yes;12163
+node;3300157792;Karow Apotheke;52.616322;13.4855923;;;;;;;13125
+node;3307700070;Elisabeth Apotheke;52.54268739999999;13.4258787;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;10405
+node;3310052861;Apotheke Rosenthaler Platz;52.5299308;13.4017313;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-18:00";yes;10119
+node;3310698935;Apotheke an der Galenusstraße;52.5806283;13.4237469;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-13:00";;13187
+node;3328474346;Birken-Apotheke Karow;52.61197169999999;13.4742827;;;;;"Mo,Tu,Th 08:00-18:30; We,Fr 08:00-18:00; Sa 08:30-13:00";no;13125
+node;3331787468;Aschenbachs Apotheke;52.5196854;13.387447500000002;;;;;"Mo-Fr 07:00-20:00; Sa 10:00-17:00";yes;10117
+node;3334327193;Apotheke 4.0;52.526505;13.3417528;;;Apotheken im Center;;Mo-Sa 08:00-20:00;yes;10551
+node;3337674441;Kristall Apotheke;52.5233862;13.299693;;;Kathrin Wernecke e.Kfr.;;Mo-Fr 08:30-18:30;no;10589
+node;3337738729;Apotheke am Heckerdamm;52.5390832;13.2994523;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:30";;13627
+node;3337776414;Eva-Apotheke;52.549283100000004;13.2003621;;;;;"Mo 08:30-18:30; Sa 09:00-13:30";no;13585
+node;3338623569;Apotheke Wilhelmstraße;52.521277600000005;13.1854103;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-18:00; Su,PH off";yes;13593
+node;3338651114;Gesundheits-Apotheke;52.40297039999999;13.5240121;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00";yes;12524
+node;3339491292;Titisee Apotheke;52.6092923;13.335399;;;;;"Mo-Fr 08:30-18:00; Sa 08:30-13:00";yes;13469
+node;3340079413;Oran-Apotheke;52.589433799999995;13.3346308;;;;;"Mo 08:00-18:30;Tu 08:00-19:30;We 08:00-18:30;Th 08:00-19:30;Fr 08:00-18:30;Sa 08:00-13:00";yes;13437
+node;3341588831;Kolonie-Apotheke;52.557857500000004;13.3787231;;;Ahmed Aziz;;"Mo-Fr 08:30-19:00; Sa 09:00-13:00";;13359
+node;3350477701;Nordkreuz Apotheke;52.54837399999999;13.3887526;;;Ling Girgsdies e.K.;;"Mo-Fr 08:00-20:00; Su 10:00-16:00; Sa 09:00-19:00";yes;13357
+node;3353191483;Berlinda Apotheke;52.4576052;13.3197716;;;;;"Mo-Fr 09:00-20:00; Sa 10:00-20:00";yes;12163
+node;3353229504;MediosApotheke;52.567325999999994;13.4108465;;;;;"Sa 09:00-16:00; Mo-Fr 08:00-19:00";yes;13187
+node;3353236089;Arcaden-Apotheke;52.5334895;13.1975602;;;;;"Mo-Fr 09:00+; Sa 10:00+";yes;
+node;3353252595;Arcaden-Apotheke;52.456062999999986;13.3862617;;;;;"Mo-Fr 09:00-20:00; Sa 10:00-20:00";yes;12099
+node;3353551041;Sky Apotheke Kreuzberg;52.48953890000001;13.3888023;;;;;"Mo-Sa 08:00-22:30; Su 10:00-22:30";yes;10961
+node;3354050334;Friedrich-Wilhelm Apotheke;52.47210040000001;13.3275938;;;;;"Sa 09:00-13:00; Mo-Fr 08:30-18:30";limited;12161
+node;3357535140;Kollwitz-Apotheke;52.53619029999999;13.418232899999998;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-16:00";yes;
+node;3374665796;Krankenhaus-Apotheke;52.54386139999999;13.3446673;;;;;"Mo-Fr 07:30-17:00; Sa 09:00-12:00";;
+node;3411987196;Wittekind-Apotheke am Attilaplatz;52.456587600000006;13.3754259;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;12103
+node;3446123445;Sophien-Apotheke;52.5323503;13.3968456;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00";yes;10115
+node;3472167668;Apotheke Goltzstraße;52.4939199;13.353605900000002;;;Apotheker David Bekerman e.K.;;"Mo-Fr 09:00-19:00; Sa 09:00-15:00";yes;10781
+node;3556800140;Fontane-Apotheke;52.5015768;13.3249245;;;Milena Dolgoj;;"Mo-Fr 08:30-19:00; Sa 09:30-16:00";no;10719
+node;3625376503;Titania Apotheke;52.46368799999999;13.3261596;;;Apothekerin Sonja Lessing e. K.;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";no;12163
+node;3632641123;Feurig-Apotheke;52.484362399999995;13.3533655;;;Konstantin Lamboy;;"Sa 09:00-14:00; Mo-Fr 08:30-19:00";yes;10827
+node;3632641432;Pommern Apotheke;52.4885088;13.3588471;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";yes;10827
+node;3644288801;Schloss Apotheke;52.4440241;13.5671809;;;Dagmar Wilhelm e.Kfr.;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00; Su off";no;12557
+node;3652905896;Rheinstein-Apotheke;52.482749999999996;13.5270224;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-14:00";yes;10318
+node;3662929427;Cranach Apotheke;52.46822749999999;13.3418488;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;12157
+node;3666540067;Roland Apotheke;52.49479149999999;13.3384366;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";yes;10777
+node;3675973919;Apotheke in der Metropole;52.50064079999999;13.330649100000002;;;;;"Mo-Fr 08:30-19:00; Sa-Su,PH off";yes;10719
+node;3678881033;Apotheke am Zoo;52.5045271;13.3317185;;;;;"Mo-Fr 08:30-22:30; Sa 09:00-16:00";yes;10623
+node;3686215389;Mörike Apotheke;52.4659153;13.4870512;;;Lars Rieck e.K.;;"Mo-Fr 08:00-19:30; Sa 08:00-14:00";yes;12437
+node;3727826475;Greifswalder Apotheke;52.5328339;13.4286374;;;;;"Mo-Fr 08:00-19:30; Sa 09:00-14:00";limited;
+node;3770254015;Apotheke am Bärenschaufenster;52.497400899999995;13.5197847;;;;;Mo-Fr 08:30-18:30;yes;10319
+node;3772676294;Pluspunkt Apotheke im Linden-Center;52.5649398;13.5066256;;;;;;yes;13051
+node;3775184617;Pannier-Apotheke;52.486410400000004;13.4299259;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-15:00";yes;
+node;3803786798;Apotheke im Gesundheitsforum Köpenick;52.4598672;13.5798681;;;;;"Mo,Tu,Th,Fr 08:00-18:00; We 08:00-14:00";yes;12555
+node;3826013963;Magnus Apotheke;52.498484699999985;13.3508484;;;;;"Mo-Fr 08:30-20:00; Sa 09:00-16:00";yes;10777
+node;3826455882;Quartier Apotheke Nolleturm;52.499350299999996;13.3522231;;;;;"Mo-Fr 08:30-20:00; Sa 09:00-17:00";yes;10777
+node;3826455892;Vida Apotheke;52.500298;13.3489734;;;Jhonny Jimenez Pinto;;"Mo-Fr 08:30-19:00; Sa 09:00-16:00";limited;10787
+node;3834271596;Humboldt-Apotheke;52.50276470000001;13.3665376;;;;;Mo-Fr 08:30-18:00, Sa 08:30-13:00;no;10785
+node;3844572789;St. Annen Apotheke;52.48838009999999;13.3490721;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";limited;10823
+node;3859397154;Quartier Apotheke Maaßenstraße;52.49860100000001;13.3544313;;;Quartier Apotheke Nollendorfplatz e.K., Kai Uwe Wilken-Prozesky;;"Mo-Fr 08:30-20:00; Sa 09:00-20:00";yes;10777
+node;3861762721;Hermes-Apotheke;52.5027976;13.3197952;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-15:00";limited;10623
+node;3883143867;Sonnen-Apotheke;52.46185679999999;13.5171942;;;Annette Arendt;;"Mo-Fr 08:00-19:00; Sa 08:30-13:00";no;12459
+node;3883215153;Kant - Apotheke;52.4638103;13.5184661;;;Christine Kempfert;;"Mo-Fr 08:00-18:30; Sa 08:00-12:30";no;12459
+node;3914041314;Sedan Apotheke;52.45105229999999;13.3356849;;;Hans-Christian Milhahn;;Mo-Fr 09:00-18:30, Sa 09:00-13:00;yes;12167
+node;3941585864;Jasmin Apotheke;52.54275470000001;13.3929225;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";limited;13355
+node;3978727083;Pharmland;52.4522616;13.5867921;;;;;Mo-Sa 09:00-19:00;yes;
+node;3987051088;Casana-Apotheke;52.5574272;13.5705133;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00";yes;12687
+node;4010310541;Sonnenhut Apotheke;52.53026319999999;13.620744600000002;;;Katrin Paul e. Kfr.;;"Mo-Fr 08:00-18:30,Sa 08:30-13:00; PH off";;12627
+node;4116109275;easyApotheke Marzahn;52.544134699999994;13.5484221;;easyApotheke;;;"Mo,Tu,Th,Fr 08:00-18:30; Sa 08:00-13:00; We 08:00-15:00";yes;
+node;4119531056;Bären Apotheke Treptow;52.4885571;13.4538009;;;;;"Mo-Fr 08:00-18:30; Sa 08:30-13:00";;12435
+node;4197401453;Die Herz Apotheke 12;52.5506141;13.385108000000002;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";yes;
+node;4221018789;Apotheke Helle Mitte;52.5376932;13.6022698;;;Heike Häring e.K.;;"Mo-Fr 08:00-19:00, Sa 08:00-14:00; PH off";yes;12627
+node;4234162689;Sky Apotheke;52.54872290000001;13.3544811;;;;;"Mo-Sa 08:00-22:30; Su,PH 10:00-22:30";yes;13353
+node;4235016190;Grüne Apotheke;52.53691500000001;13.6028472;;;;;"Mo,Tu,Th,Fr 09:00-18:00, We 09:00-14:00; PH off";;12627
+node;4318602145;Melanchthon Apotheke;52.519142099999996;13.197578;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00";yes;
+node;4347330563;Apotheke am Adenauerplatz;52.500640000000004;13.3075874;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-16:00";yes;
+node;4365384392;Löwenburg-Apotheke;52.59376489999999;13.4607566;;;;;"Mo-Fr 08:00-19:30; Sa 08:30-14:00; Su,PH off";yes;13129
+node;4381928183;Apotheke am Bundesplatz;52.47968089999999;13.3276877;;;Michaela Kröger;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;10715
+node;4396193589;Müggel-Apotheke;52.41256750000001;13.660795;;Mika Apotheken;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";yes;
+node;4396385781;Apotheke am T-Damm;52.4586221;13.3840737;;;Pinar Toprak;;Mo-Fr 08:30-19:30, Sa 08:30-16:00;limited;12099
+node;4413004968;Rosen-Apotheke;52.5651319;13.324363;;;;;"Mo,Tu,Th,Fr 09:00-18:30; We 09:00-18:00; Sa 09:00-13:00";;
+node;4436482370;Die Herz Apotheke 32;52.5529761;13.3801354;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";yes;13357
+node;4439765092;Drive In;52.634385699999996;13.4943757;;;;;"Mo-Fr 07:30-20:00; Sa 07:30-18:00";yes;
+node;4485201590;Apotheke Alt-Lichtenrade;52.3943701;13.410495;;;;;"Mo,Tu,Th 08:00-19:00; We,Fr 08:00-18:30; Sa 08:00-14:00";yes;12309
+node;4508100704;Südend-Apotheke;52.4497048;13.3478529;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";no;
+node;4514495946;Falken-Apotheke;52.553736999999984;13.4751797;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-13:00";;
+node;4580235141;easyApotheke Residenzstraße;52.56737999999999;13.3621478;;easyApotheke;;;"Mo-Fr 08:00-19:00; Sa 09:00-15:00";yes;13409
+node;4590302593;Bärenapotheke;52.44958410000001;13.2694016;;;;;;yes;14195
+node;4590578897;Schneemann's Apotheke Rahnsdorf;52.43155459999999;13.715511;;;;;Mo-Fr 08:30-18:00;yes;12589
+node;4630466562;Wilhelm-Tell-Apotheke;52.5662533;13.3456239;;;;;Mo-Fr 08:00-18:30, Sa 08:00-14:00;limited;
+node;4630466565;Primus-Apotheke;52.567827399999985;13.351489900000002;;;;;;;
+node;4656560689;Zwilling Apotheke;52.467232;13.3082149;;;R. H. Scheer;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";no;
+node;4682866291;Haus Apotheke;52.5290131;13.4566633;;;;;"Mo-Fr 08:00-20:00; Sa 08:00-16:00; PH off";yes;10407
+node;4715153492;Rathaus-Apotheke;52.45446019999999;13.6254184;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;12587
+node;4737978945;Kleo Apotheke;52.5520193;13.3487888;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-14:30";yes;13349
+node;4767441824;Sanimedius-Apotheke im Corso;52.5292971;13.592642300000001;;;;;;yes;12619
+node;4936116186;Alte Hellersdorfer;52.54632749999999;13.5924702;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";;
+node;4936408725;puls Apotheke;52.387047499999994;13.4092711;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00; Su,PH off";yes;12307
+node;4957605786;Kastanienaphotheke;52.591988799999996;13.382971400000002;;;;;;;13158
+node;5099191724;Apotheke des Westens;52.503554799999996;13.3351723;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-18:00; Su,PH off";yes;10789
+node;5136059327;Apotheke am Kurfürstendamm;52.50149290000001;13.320417;;;;;"Mo-Fr 09:00-20:00; Sa 09:00-19:00";yes;10719
+node;5168728119;Edelweiss Apotheke;52.58694839999999;13.3682051;;Linden Apotheken;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00; Su,PH off";yes;13158
+node;5181703340;Königliche Hof-Apotheke;52.516327999999994;13.3091043;;;Dr. Sabine Maria Knoll-Schütze;;"Mo-Fr 09:00-19:00; Sa 09:00-14:00; Su,PH off";yes;10585
+node;5244950366;Tilia Apotheke;52.5608476;13.3688276;;;;;Mo-Fr 09:00-19:00, Sa 09:00-12:00;yes;
+node;5266816861;Apotheke am Weißen See;52.5531267;13.4674421;;;René Rogge;;Mo-Fr 08:30-18:00;yes;13088
+node;5381166353;Kiez-Apotheke;52.4564723;13.5107243;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-13:00; Su,PH off";yes;12439
+node;5471345775;Center Apotheke;52.5609831;13.422458;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00";;
+node;5505144605;Thüringer Apotheke;52.47974630000001;13.3265646;;;Anja Schmitt;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";yes;10715
+node;5558763418;Kloster-Apotheke;52.416739199999995;13.4961631;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-16:00";;
+node;5570687529;Linden-Apotheke;52.53364429999999;13.6093932;;;Jonny Neumann;;"Mo-Fr 08:00-18:30, Sa 09:00-12:30; PH off";;12627
+node;5617991157;Zedern-Apotheke;52.4852031;13.362709400000002;;;Nuriye Örs-Reppert e.Kfr.;;"Mo-Fr 08:00-18:30; Sa 08:30-13:00";;10829
+node;5777420980;Schönhauser Apotheke;52.5409918;13.4135467;;;Nico Daniel Reinold;;"Mo-Fr 08:00-20:00; Sa 09:30-16:30";yes;10435
+node;5838129619;Apotheke im Polikum Friedenau;52.46381259999999;13.3449085;;;Astrid Scherer;;Mo-Fr 08:00-20:00;yes;12157
+node;5971003197;Die Herz Apotheke;52.52863709999999;13.1918731;;;;;"Mo-Fr 08:00-18:30; Sa 09:00-14:00";yes;13581
+node;6006371223;Lorbeer-Apotheke;52.53534960000001;13.4355276;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-20:00; Su 10:00-20:00";yes;10407
+node;6143046477;Pluspunkt Apotheke Potsdamer Platz;52.50684769999999;13.3736216;;;;;"Mo-Fr 09:00-19:00; Sa 10:00-19:00; PH,Su off";yes;
+node;6200110157;Adler-Apotheke;52.5464133;13.4974134;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";yes;13055
+node;6254464585;Apotheke im KaDeWe;52.501129399999996;13.340043;;;;;;;
+node;6308903438;Bio 7.0 Apotheke;52.501785299999995;13.3223333;;;Marietta Dubinski e.K.;;"Mo-Fr 08:30-20:00; Sa 09:00-20:00; Su,PH 14:30-18:00";yes;10719
+node;6316429002;Stier-Apotheke;52.474018099999995;13.3379088;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";yes;12159
+node;6501792388;Am Schäfersee;52.5622445;13.356749400000002;;;Khosro Momen Esnaashari;;"Mo-Fr 08:30-18:30; Sa 08:00-13:00";;13407
+node;6510008627;Feuerland-Apotheke;52.533959199999984;13.379111500000002;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-16:00";yes;10115
+node;6518240976;OLMS-Apotheke;52.444441399999995;13.3999635;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:00";no;12109
+node;6939573755;Apotheke an der Dahme;52.4209973;13.5780562;;;;;"Mo-Fr 08:00-18:30; Sa 08:30-13:00; PH closed";yes;12527
+node;7039503416;Die City Apotheke;52.47799160000001;13.4257337;;;;;"Mo-Fr 09:00-19:00; Sa 10:00-18:00";;12049
+node;7072465637;Neumann Apotheke;52.50626020000001;13.6130564;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-18:00; PH off";yes;12623
+node;7090489961;Dolgensee-Apotheke;52.4938077;13.5073306;;;Sabine Fischer e.Kfr;;"Mo-Fr 08:00-18:30; Sa 08:00-12:30; Su,PH off";yes;10319
+node;7093679841;Reseda-Apotheke;52.553321100000005;13.4343492;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";no;
+node;7223008667;Burg-Apotheke;52.41467279999999;13.3473596;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-13:30";no;
+node;7235438319;Schneemanns Apotheke;52.5609423;13.4995745;;;Carolin und Stefanie Schneemann;;Mo-Fr 09:00-19:00, Sa 09:00-16:00;;13051
+node;7627061713;Fontane Apotheke;52.5371206;13.204226600000002;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;
+node;7723893754;Unsere Apotheke;52.48817529999999;13.340596400000003;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-14:00";;10779
+node;7822423712;Herzpunkt Apotheke;52.5459056;13.428558200000001;;;;;"Mo-Th 08:00-19:00; Fr 08:00-18:30; Sa 09:00-14:00";yes;
+node;7829177030;Zentrum Apotheke;52.52183839999999;13.1632186;;;Hans-Jürgen Bracht e.K.;;"Mo-Fr 08:30-19:00; Sa 08:30-14:00; PH off";yes;13593
+node;7843356143;Apotheke am Leipziger Platz;52.5099924;13.3813001;;;;;"Mo-Fr 09:00-20:00; Sa 10:00-20:00";yes;
+node;7858528547;Falken-Apotheke;52.58467710000001;13.2289448;;;;;;;13505
+node;7887845846;Apotheke im Ring-Center II;52.51454989999999;13.4757696;;;;;"Mo-Sa 09:00-20:00; PH off";yes;10365
+node;7924001320;Cäcilien Apotheke;52.505316999999984;13.295222000000003;;;;;"Mo-Fr 09:00-19:00; Sa 09:00-14:00";no;14057
+node;7951875987;Fürst Bismarck Apotheke;52.4990942;13.4404067;;;Ilka Stamp;;"Mo-Fr 08:00-18:30; Sa 08:30-14:00";limited;10997
+node;8139335201;Löwenzahn Apotheke;52.53699499999998;13.6204854;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";yes;12627
+node;8463977955;Löwenzahn-Apotheke;52.5702396;13.495486400000003;;;;;;;13051
+node;8464152653;Känguruh-Apotheke;52.564696899999994;13.5711546;;;;;;;12689
+node;8464152657;Atrium-Apotheke;52.56849059999999;13.5686949;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-13:00";;
+node;8668129617;Rialto;52.548696899999996;13.4286748;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-14:00";yes;
+node;8761696565;Zehlendorf Apotheke;52.43307550000001;13.2597431;;;;;"Mo-Fr 08:30-19:00; Sa 09:30-15:30";yes;14169
+node;9048798363;easyApotheke Neukölln Arcaden;52.48189180000001;13.4318468;;easyApotheke;;;"Mo-Fr 09:00-20:00; Sa 10:00-20:00; Su,PH off";;12043
+node;9665677325;Pelikan Discount Apotheke;52.46824649999999;13.3852028;;;;;"Mo,Tu,Th 08:30-19:00; We,Fr 08:30-18:30; Sa 09:00-15:00";yes;12099
+node;9705828231;Grüne Apotheke Schmargendorf;52.476488499999995;13.2887772;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";;14199
+node;9799003817;Bromelia Apotheke;52.53409329999999;13.5380235;;;;;"Mo-Fr 09:00-19:00; Sa 08:00-14:00; PH,Su off";yes;12681
+node;9818005937;Apotheke Heerstraße-Nord;52.521879;13.1620771;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:30";;13593
+node;9861117952;Panda-Apotheke;52.41531340000001;13.4030883;;;;;"Mo,Tu,Th 08:00-19:00; We,Fr 08:00-18:30; Sa 08:00-14:00";;12349
+node;9901787917;Apotheke am Kutschi;52.564237199999994;13.3284535;;;;;"Mo-Fr 08:00-19:00; Sa 09:00-14:00";yes;13403
+node;10018043153;City Apotheke;52.52568899999999;13.4222821;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00";yes;10249
+node;10033057617;Buchholzer Apotheke;52.60525690000001;13.4323738;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";;13127
+node;10109657661;Prager Apotheke;52.49384980000001;13.3326554;;;Dr. Goetz Krauter;;Mo-Fr 09:00-18:00 , Sa 09:00-14:00;yes;10779
+node;10658455542;+1 Apotheke;52.540412;13.3948502;;;Mayada Al-Hashimi e.K.;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";yes;13355
+node;10717290064;Weissenseer Apotheke;52.5536278;13.4507454;;;Marco Sliwa;;"Mo,Tu,Th 08:00-19:00; We,Fr 08:00-18:30; Sa 09:00-13:00";yes;
+node;10804876421;;52.4411922;13.6889974;;;;;;;
+node;10982679274;easy Apotheke;52.599240099999996;13.3549158;;easyApotheke;;;;;
+node;10983944860;Großkreuz-Apotheke;52.597978;13.3557529;;;;;Mo-Sa 09:00-20:00;yes;
+node;10983962574;Äskulap-Apotheke;52.59753899999999;13.3557984;;;;;"Mo-Fr 08:30-20:00; Sa 08:30-16:00";;
+node;11004092124;Buckower Apotheke;52.4169598;13.4375051;;;;;Mo-Fr 08:30-18:30;yes;12349
+node;11078666918;Friedrichsberg-Apotheke;52.508227299999994;13.479879900000002;;;;;"Mo-Fr 08:30-19:00; Sa 08:30-13:00";yes;10365
+node;11260371583;Alt Marzahner Apotheke;52.54166259999999;13.5641461;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-13:00";;
+node;11418681907;Brücken Apotheke;52.5261333;13.5341455;;;Apothekerin Christine Marsitzky;;Mo-Fr 08:00-18:30;;12681
+node;11565459167;easyApotheke am Schoenegarten;52.50107369999999;13.3586243;;easyApotheke;;;;;10785
+node;11589912368;Kienberg-Apotheke;52.537249799999984;13.5885574;;;;;;;12629
+node;11778497232;Oskar Ziethen Apotheke;52.512759900000006;13.4962174;;;;;Mo-Fr 09:00-18:00;;10365
+node;11811875867;Wuhletal Apotheke;52.52812269999999;13.5699477;;;;;"Mo-Fr 08:00-19:00; Sa 08:00-14:00";yes;
+node;12277590806;Apotheke am Lichtenrader Damm;52.409648399999995;13.4042874;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-13:00";yes;
+node;12872855271;Apotheke zum Stift;52.4349834;13.3899132;;;;;"Mo-Fr 08:30-18:30; Sa 08:30-14:00";;
+node;13362230689;Flieder-Apotheke;52.431546099999984;13.5830413;;;;;"Mo-Fr 07:30-19:00; Sa 08:00-13:00";;12557
+node;13483929851;Premium Apotheke;52.549954400000004;13.3902549;;;;;;;
+node;13504120897;;52.631144400000004;13.5115575;;;;;;;
+node;13727680084;PLUSPUNKT-APOTHEKE im Eastgate;52.544202799999994;13.5458728;;;;;"Mo-Fr 08:30-19:00; Sa 09:00-19:00";;12679
+node;13917085795;Apotheke im Tegel-Quartier;52.589624199999996;13.284466000000002;;;;;;;13507
+node;14100866337;Palmen-Apotheke;52.49973469999999;13.4448743;;;Christiane Koch;;"Mo-Fr 09:00-18:30; Sa 11:00-13:00";no;10997
+node;14246854886;Asavita Apotheke;52.56443679999999;13.4432687;;;Konstantin Primbas;;"Mo-Fr 09:00 -13:00; 15:00 -18:00";;13089
+way;26323278;Hufeisen-Apotheke;52.44600940085519;13.447319445870267;;;;;Mo-Fr 08:30-13:00, Mo,Tu,Th,Fr 14:00-18:30;limited;12359
+way;32367124;Lilas Apotheke;52.508882551299415;13.323180003432826;;;;;"Mo-Fr 08:30-18:30; Sa 09:00-14:00";yes;10623
+way;59806041;Apotheke im Berliner Hauptbahnhof;52.52558101368772;13.369561889658835;;;;;Mo-Su 07:00-21:00;yes;10557
+way;135737898;Nikolai Apotheke;52.517962509877215;13.169606802920482;;;;;"Mo-Fr 09:00-18:00; Sa 09:00-13:00; PH off";yes;13593
+way;192889139;Marien-Apotheke;52.43402434482107;13.341179020306235;;;;;"Mo-Fr 08:00-18:30; Sa 08:00-13:00";;12247
+way;337165575;Bahnhof-Apotheke Friedrichshain;52.510008616260535;13.4338175342823;;;;customers;"Mo-Sa 08:00-20:00; Su 10:00-18:00";yes;10243
+way;372016529;Condor Apotheke;52.415255806607696;13.49672311516558;;;Matthias Roos e.K.;;"Mo,Tu,Th,Fr 08:30-19:00; We 08:00-18:30; Sa 08:30-14:00";limited;12355
+way;381240714;Apotheke im Bahnhof Südkreuz;52.47666290817612;13.364314491668015;;;;customers;"Mo-Fr 07:00-20:00; Sa 09:00-19:00; Su 10:00-18:00";yes;12101
+way;430955094;Lichtenberg Apotheke;52.50955310779404;13.4972967535211;;;Lukas & Maria Zoschke oHG;;Mo-Sa 08:00-20:00, Su,PH 10:00-16:00;yes;
+way;510479858;Hirsch-Apotheke;52.618411833889965;13.305324651212306;;;Christiane von Dallwitz;;"Mo-Fr 08:30-18:30; Sa 08:30-14:00";yes;13467
+way;739645093;Arena Apotheke;52.50584152580765;13.447149249627724;;;;;"Mo-Fr 08:00-20:00; Sa 09:00-20:00; Su,PH off";yes;
+way;1002286243;Kastanien Apotheke;52.537391161407186;13.605458722483899;;;Sandra Bouvain e.K.;;"Mo-Fr 08:30-19:30; Sa 10:00-19:00";yes;12627
+way;1197629859;Alexa Apotheke;52.518968005470484;13.41546375374921;;;;;"Mo-Fr 09:00-20:00; Sa 10:00-20:00";yes;10179
+way;1208913688;Prinzen Apotheke;52.51307352178863;13.589777384478298;;;Karin Neumann e.K.;;"Mo-Fr 08:00-18:30, Sa 09:00-12:00; PH off";yes;
+way;1410373889;Apotheke im Schultheiss Quartier;52.528131481778104;13.343673915925276;;;Dr. pharm. Edzard Zweydinger, Apotheker e.K.;;Mo-Sa 09:00-20:00;yes;10551
+way;1549105853;;52.43826064947289;13.54798551696494;;;;;;;
+way;1549184507;Pluspunkt Apotheke;52.56494221400295;13.506611037311382;;;;;;;
+way;1555241274;Apotheke in den Hallen am Borsigturm;52.58398461079113;13.286376491989593;;;;;Mo-Sa 09:00-20:00;;13507

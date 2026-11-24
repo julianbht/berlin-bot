@@ -14,8 +14,8 @@ def main():
     """Main: Generation of Streamlit App for visualizing OpenStreetMap data in Berlin"""
 
     # residents per PLZ; the OSM data is loaded inside the app, depending on the pull-down menus
-    df_residents = #   TODO: read "datasets/" + pdict["file_residents"]  (sep=",", decimal=".")
-    df_residents = #   TODO: m1.preprop_resid(...)
+    df_residents = pd.read_csv("datasets/" + pdict["file_residents"], sep=",", decimal=".")
+    df_residents = m1.preprop_resid(df_residents)
 
     m1.make_streamlit_app(pdict, df_residents)
 

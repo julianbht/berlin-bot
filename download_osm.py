@@ -27,19 +27,28 @@ def download_source(label, cfg):
     gdf = ox.features_from_place("Berlin, Germany", tags=cfg["tags"])
 
     # The index is (element type, id). Turn it into normal columns "osm_type" and "osm_id".
-    # Hint: gdf.reset_index(); the column names differ between osmnx versions -> use gdf.columns[0], [1]
-    # TODO
+    # The column names differ between osmnx versions -> rename by position
+    gdf = gdf.reset_index()
+    gdf = gdf.rename(columns={gdf.columns[0]: "osm_type", gdf.columns[1]: "osm_id"})
 
     # Nodes are points, ways / relations are polygons. We need ONE point per object:
-    # centroid in a projected CRS (pdict["crs_metric"]), then back to lat / lon (pdict["crs_geo"]).
-    # TODO: add columns "lat" and "lon"
+    # centroid in metres (EPSG:25833), then back to lat / lon (EPSG:4326)
+    centroids = gdf.geometry.to_crs(pdict["crs_metric"]).centroid.to_crs(pdict["crs_geo"])
+    gdf["lat"] = centroids.y
+    gdf["lon"] = centroids.x
 
-    # Tags do not exist for every object. Add missing columns from KEEP and cfg["subcat"] (filled with
-    # pd.NA), so that later code never fails on a missing column.
-    # TODO
+    # Tags do not exist for every object -> add missing columns (empty), so later code never fails
+    extra = KEEP + [cfg["subcat"]]
+    for col in extra:
+        if col not in gdf.columns:
+            gdf[col] = pd.NA
 
-    # TODO: select osm_type, osm_id, name, lat, lon + the KEEP columns, remove duplicates,
-    #       save to "datasets/" + cfg["file"]  (sep=";", index=False, encoding="utf-8")
+    # Select columns (no duplicates in the list), remove duplicate objects, save
+    cols = list(dict.fromkeys(["osm_type", "osm_id", "name", "lat", "lon"] + extra))
+    df = pd.DataFrame(gdf[cols]).drop_duplicates(subset=["osm_type", "osm_id"])
+    os.makedirs("datasets", exist_ok=True)
+    df.to_csv("datasets/" + cfg["file"], sep=";", index=False, encoding="utf-8")
+    print("   saved", len(df), "objects ->", "datasets/" + cfg["file"])
 
 
 def write_info(label):
