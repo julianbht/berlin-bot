@@ -2,7 +2,7 @@
 
 Streamlit app that shows OpenStreetMap (OSM) points of interest in Berlin per postal code (PLZ) or
 district (Bezirk) and answers questions about the current view with an LLM chat assistant.
-This branch contains **Part A (Tasks 1–4)** of the problem set: complete, tested, ready to deploy.
+This branch contains **Part A (Tasks 1–4)** of the problem set: complete and ready to deploy.
 
 ## Quick start
 
@@ -20,7 +20,7 @@ To download it again: `python download_osm.py` (all sources) or `python download
 (e.g. `OPENAI_API_KEY = "sk-..."`), or type the key into the sidebar. `secrets.toml` is in `.gitignore` –
 never commit a key. On Streamlit Community Cloud put the key under *App settings → Secrets*.
 
-**Tests:** `pip install pytest` then `python -m pytest` (17 tests, ~1 s).
+The code has type hints and a short comment before every block that explains what it does and why.
 
 ## Files
 
@@ -31,7 +31,6 @@ never commit a key. On Streamlit Community Cloud put the key under *App settings
 | `download_osm.py` | Task 1 – downloads one csv per source (osmnx), one point per object |
 | `core/methods.py` | Tasks 2–4 – loading, spatial join, indicators, data quality, maps, Streamlit app |
 | `core/chat.py` | Chat assistant (provided): context of the current view + LLM call |
-| `tests/` | Automated tests of the deterministic code |
 | `datasets/` | PLZ / Bezirk polygons, residents per PLZ, downloaded OSM csv files |
 
 ## Design decisions

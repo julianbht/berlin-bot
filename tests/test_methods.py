@@ -2,6 +2,7 @@
 
 Run:  pip install pytest   then   python -m pytest
 """
+
 import os
 
 import geopandas as gpd
@@ -36,7 +37,7 @@ def make_points(rows):
     return gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df["lon"], df["lat"]), crs=pdict["crs_geo"])
 
 
-BRANDENBURG_GATE = (52.5163, 13.3777)       # PLZ 10117, Bezirk Mitte
+BRANDENBURG_GATE = (52.5163, 13.3777)  # PLZ 10117, Bezirk Mitte
 
 
 # -----------------------------------------------------------------------------
@@ -45,7 +46,7 @@ BRANDENBURG_GATE = (52.5163, 13.3777)       # PLZ 10117, Bezirk Mitte
 @pytest.mark.parametrize("label", list(pdict["sources"].keys()))
 def test_osm_file_exists_and_is_in_berlin(label):
     path = "datasets/" + pdict["sources"][label]["file"]
-    assert os.path.exists(path), "run: python download_osm.py \"" + label + "\""
+    assert os.path.exists(path), 'run: python download_osm.py "' + label + '"'
     pts = m.load_osm_points(pdict["sources"][label]["file"])
     assert len(pts) > 0
     # x = longitude (~13.4), y = latitude (~52.5): catches swapped coordinates
@@ -83,7 +84,7 @@ def test_aggregate_keeps_empty_areas(plz, residents):
     pts = m.assign_area(make_points([("Gate", *BRANDENBURG_GATE, {})]), plz, "PLZ")
     res = m.residents_by_area(residents, plz, None, "PLZ")
     agg = m.aggregate(pts, plz, "PLZ", "Number", res)
-    assert len(agg) == 190                         # all areas, also the empty ones
+    assert len(agg) == 190  # all areas, also the empty ones
     assert (agg["count"] == 0).sum() == 189
     assert agg.loc[agg["PLZ"] == 10117, "count"].item() == 1
 
@@ -91,13 +92,14 @@ def test_aggregate_keeps_empty_areas(plz, residents):
 def test_area_in_km2_not_degrees(plz, residents):
     res = m.residents_by_area(residents, plz, None, "PLZ")
     agg = m.aggregate(make_points([("x", *BRANDENBURG_GATE, {})]).assign(PLZ=10117), plz, "PLZ", "Number", res)
-    assert agg["area_km2"].sum() == pytest.approx(891.8, abs=5)    # official area of Berlin
+    assert agg["area_km2"].sum() == pytest.approx(891.8, abs=5)  # official area of Berlin
 
 
 def test_per_residents_undefined_for_small_areas(plz, residents):
     res = m.residents_by_area(residents, plz, None, "PLZ")
-    agg = m.aggregate(make_points([("x", *BRANDENBURG_GATE, {})]).assign(PLZ=10117), plz, "PLZ",
-                      "Number per 10,000 residents", res)
+    agg = m.aggregate(
+        make_points([("x", *BRANDENBURG_GATE, {})]).assign(PLZ=10117), plz, "PLZ", "Number per 10,000 residents", res
+    )
     small = agg["Einwohner"] < pdict["min_residents"]
     assert small.any() and agg.loc[small, "value"].isna().all()
     assert agg.loc[~small, "value"].notna().all()
@@ -114,9 +116,13 @@ def test_residents_bezirk_sum_equals_plz_sum(plz, dis, residents):
 # Category filter (menu 2)
 # -----------------------------------------------------------------------------
 def test_filter_multi_valued_tags():
-    pts = make_points([("A", 52.5, 13.4, {"cuisine": "italian;pizza"}),
-                       ("B", 52.5, 13.4, {"cuisine": "pizza"}),
-                       ("C", 52.5, 13.4, {"cuisine": None})])
+    pts = make_points(
+        [
+            ("A", 52.5, 13.4, {"cuisine": "italian;pizza"}),
+            ("B", 52.5, 13.4, {"cuisine": "pizza"}),
+            ("C", 52.5, 13.4, {"cuisine": None}),
+        ]
+    )
     assert m.category_options(pts, "cuisine") == ["pizza", "italian"]
     assert list(m.filter_category(pts, "cuisine", "italian")["name"]) == ["A"]
     assert len(m.filter_category(pts, "cuisine", "pizza")) == 2
@@ -128,11 +134,15 @@ def test_filter_multi_valued_tags():
 # Task 3: data quality report
 # -----------------------------------------------------------------------------
 def test_quality_report(plz):
-    pts = make_points([("Apotheke", 52.5163, 13.3777, {"addr:postcode": "10117"}),
-                       ("Apotheke", 52.51633, 13.37772, {"addr:postcode": "10115"}),   # ~4 m away
-                       (None, 52.40, 13.06, {"addr:postcode": None})])                # outside
+    pts = make_points(
+        [
+            ("Apotheke", 52.5163, 13.3777, {"addr:postcode": "10117"}),
+            ("Apotheke", 52.51633, 13.37772, {"addr:postcode": "10115"}),  # ~4 m away
+            (None, 52.40, 13.06, {"addr:postcode": None}),
+        ]
+    )  # outside
     pts = m.assign_area(pts, plz, "PLZ")
-    q = dict(zip(*m.quality_report(pts, plz).T.values))
+    q = dict(zip(*m.quality_report(pts, plz).T.values, strict=True))
     assert q["Number of objects"] == "3"
     assert q["Without name"].startswith("1 ")
     assert q["Near-duplicates (same name, < 10 m)"] == "1 pairs"
