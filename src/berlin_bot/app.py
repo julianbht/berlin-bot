@@ -1,6 +1,7 @@
 import os
 
 import pandas as pd
+from dotenv import load_dotenv
 
 from berlin_bot.config import pdict
 from berlin_bot.core import HelperTools as ht
@@ -8,6 +9,8 @@ from berlin_bot.core import methods as m1
 from berlin_bot.paths import PROJECT_ROOT
 
 os.chdir(PROJECT_ROOT)
+# API keys for the chat from .env (local). On Streamlit Community Cloud they come from st.secrets.
+load_dotenv(PROJECT_ROOT / ".env")
 
 
 # -----------------------------------------------------------------------------

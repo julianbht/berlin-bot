@@ -8,7 +8,12 @@ __pycache__/
 !.vscode/settings.json
 !.vscode/extensions.json
 
+# Secrets / Env
+.env
+
 # A1
 *.csv
 cache/
 osm_download_info.json
+
+

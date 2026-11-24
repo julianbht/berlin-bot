@@ -74,6 +74,11 @@ p["berlin_lon"] = (13.0, 13.8)
 #   secret : name of the API key in .streamlit/secrets.toml or in an environment variable
 # Model names change over time: they can also be edited in the sidebar of the app.
 p["llm_providers"] = {
+    "OpenRouter": {
+        "base_url": "https://openrouter.ai/api/v1",
+        "model": "anthropic/claude-haiku-5.5",
+        "secret": "OPENROUTER_API_KEY",
+    },
     "OpenAI": {
         "base_url": "https://api.openai.com/v1",
         "model": "gpt-4o-mini",
@@ -101,7 +106,7 @@ p["llm_providers"] = {
         "editable_url": True,
     },
 }
-p["llm_default"] = "OpenAI"
+p["llm_default"] = "OpenRouter"
 p["llm_max_history"] = 10  # last messages sent to the LLM
 p["llm_max_tokens"] = 800  # maximum length of an answer
 

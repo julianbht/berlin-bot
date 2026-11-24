@@ -5,6 +5,9 @@ import folium
 import geopandas as gpd
 import pandas as pd
 import streamlit as st
+from branca.colormap import LinearColormap
+from folium.plugins import HeatMap, MarkerCluster
+from streamlit_folium import st_folium
 
 from berlin_bot.config import pdict as CFG  # only for CRS and thresholds
 from berlin_bot.core import HelperTools as ht
@@ -63,16 +66,20 @@ def _split_values(series):
     )
 
 
-def category_options(gdf, col, n=10):
+def category_options(gdf: gpd.GeoDataFrame, col: str, n: int = 10) -> list[str]:
     """The n most frequent values of a (multi-valued) attribute, for the dependent menu"""
-    # TODO: use _split_values, explode, value_counts. Return [] if the column does not exist.
-    raise NotImplementedError
+    if col not in gdf.columns:
+        return []
+    values = _split_values(gdf[col]).explode().dropna()
+    return values.value_counts().head(n).index.tolist()
 
 
-def filter_category(gdf, col, category):
+def filter_category(gdf: gpd.GeoDataFrame, col: str, category: str) -> gpd.GeoDataFrame:
     """Keeps objects that have <category> among their values (cuisine=italian;pizza counts for both)"""
-    # TODO: "All" -> return gdf unchanged
-    raise NotImplementedError
+    if category == "All":
+        return gdf
+    has_category = _split_values(gdf[col]).apply(lambda values: category in values)
+    return gdf[has_category]
 
 
 # =============================================================================
@@ -209,20 +216,62 @@ def quality_report(
 # =============================================================================
 # 5) Map
 # =============================================================================
-def make_map(gdf_points, gdf_agg, maptype, key="PLZ", colors=("yellow", "red"), caption="Value"):
+def _choropleth(
+    m: folium.Map,
+    gdf_agg: gpd.GeoDataFrame,
+    key: str,
+    colors: list[str] | tuple[str, ...],
+    caption: str,
+) -> None:
+    """One GeoJson layer coloured by the column "value", plus the legend"""
+    values = gdf_agg["value"].dropna()
+    vmin = float(values.min()) if len(values) else 0.0
+    vmax = float(values.max()) if len(values) else 1.0
+    if vmax <= vmin:  # one distinct value: the colormap needs a range
+        vmax = vmin + 1
+    colormap = LinearColormap(list(colors), vmin=vmin, vmax=vmax, caption=caption)
+
+    def style(feature: dict) -> dict:
+        value = feature["properties"]["value"]
+        fill = "lightgrey" if value is None else colormap(value)
+        return {"fillColor": fill, "color": "grey", "weight": 0.5, "fillOpacity": 0.7}
+
+    shown = gdf_agg[[key, "count", "value", "geometry"]].copy()
+    shown["value"] = shown["value"].round(2)
+    folium.GeoJson(
+        shown.to_json(),
+        style_function=style,
+        tooltip=folium.GeoJsonTooltip(
+            fields=[key, "count", "value"], aliases=[key, "Objects", caption]
+        ),
+    ).add_to(m)
+    colormap.add_to(m)
+
+
+def make_map(
+    gdf_points: gpd.GeoDataFrame,
+    gdf_agg: gpd.GeoDataFrame,
+    maptype: str,
+    key: str = "PLZ",
+    colors: list[str] | tuple[str, ...] = ("yellow", "red"),
+    caption: str = "Value",
+) -> folium.Map:
     """Folium map: choropleth (areas), heatmap or marker clusters (single points)"""
     m = folium.Map(location=[52.52, 13.40], zoom_start=10, tiles="OpenStreetMap")
+    # Folium wants [lat, lon], GeoPandas stores (x = lon, y = lat)
+    lat_lon = list(zip(gdf_points.geometry.y, gdf_points.geometry.x, strict=True))
 
     if maptype == "Choropleth":
-        # TODO: LinearColormap(colors, vmin, vmax) from the column "value"; areas with value NaN -> grey.
-        #       ONE folium.GeoJson layer (gdf_agg.to_json()) with style_function and tooltip. Add the legend.
-        pass
+        _choropleth(m, gdf_agg, key, colors, caption)
     elif maptype == "Heatmap":
-        # TODO: HeatMap([[lat, lon], ...])        <- Folium wants [lat, lon]
-        pass
-    else:  # Point map (clusters)
-        # TODO: MarkerCluster with one marker per point, name as tooltip
-        pass
+        HeatMap(lat_lon).add_to(m)
+    elif maptype == "Point map (clusters)":
+        cluster = MarkerCluster().add_to(m)
+        for location, name in zip(lat_lon, gdf_points["name"], strict=True):
+            tooltip = None if pd.isna(name) else str(name)
+            folium.Marker(location, tooltip=tooltip).add_to(cluster)
+    else:
+        raise ValueError(f"Unknown map type: {maptype}")
     return m
 
 
@@ -250,7 +299,7 @@ def _download_date(pdict, label):
 
 
 @ht.timer
-def make_streamlit_app(pdict, df_residents):
+def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
     """Makes Streamlit App: OSM data of Berlin, controlled by pull-down menus"""
     st.set_page_config(page_title="OpenStreetMap Berlin", layout="wide")
     st.title("OpenStreetMap Berlin: Places and Supply")
@@ -266,23 +315,62 @@ def make_streamlit_app(pdict, df_residents):
     pts, plz, dis, quality = prepare_source(src, pdict)
 
     # ---- Menu 2: category filter (depends on menu 1) ------------------------
-    # TODO: options = ["All"] + category_options(...); use key="cat_" + src so the menu resets with the source
-    cat = "All"
+    subcat = cfg["subcat"]
+    options = ["All"] + category_options(pts, subcat, pdict["top_n_category"])
+    # The key makes the menu reset to "All" when the data source changes
+    cat = st.sidebar.selectbox(f"Category filter ({subcat})", options, key="cat_" + src)
 
-    # ---- Menus 3-5 ----------------------------------------------------------
+    # ---- Menus 3-6 ----------------------------------------------------------
     area_label = st.sidebar.selectbox("Area unit", list(pdict["areas"].keys()))
     ind = st.sidebar.selectbox("Indicator", pdict["indicators"])
     mtype = st.sidebar.selectbox("Map type", pdict["maptypes"])
-    # optional menu 6: colour scale (only for the choropleth)
+    colors = list(pdict["colorscales"].values())[0]
+    if mtype == "Choropleth":
+        scale = st.sidebar.selectbox("Colour scale", list(pdict["colorscales"].keys()))
+        colors = pdict["colorscales"][scale]
 
-    # TODO: key (PLZ / Bezirk) and the matching polygons, filter by category, stop with st.warning if empty,
-    #       residents_by_area, aggregate
+    key = pdict["areas"][area_label]
+    areas = plz if key == "PLZ" else dis
+    pts_f = filter_category(pts, subcat, cat)
+    if pts_f.empty:
+        st.warning(f"No objects for {src} with {subcat} = {cat}.")
+        return
+    residents = residents_by_area(df_residents, plz, dis, key)
+    agg = aggregate(pts_f, areas, key, ind, residents)
 
-    # TODO: key figures with st.metric: objects shown, areas without any object, area with the highest value
-    # TODO: map with st_folium(m, width=1000, height=600, returned_objects=[])
-    # TODO: st.caption with "© OpenStreetMap contributors" and _download_date(pdict, src)
-    # TODO: expander "Top 3 areas and data table" with st.dataframe and st.download_button (CSV)
-    # TODO: expander "Data quality" showing the quality DataFrame
+    # ---- Key figures --------------------------------------------------------
+    col_objects, col_empty, col_top = st.columns(3)
+    col_objects.metric("Objects shown", len(pts_f))
+    empty_areas = int((agg["count"] == 0).sum())
+    col_empty.metric("Areas without any object", f"{empty_areas} of {len(agg)}")
+    if agg["value"].notna().any():
+        top = agg.loc[agg["value"].idxmax()]
+        value_text = f"{top['value']:.0f}" if ind == "Number" else f"{top['value']:.2f}"
+        col_top.metric(f"Highest value ({ind})", f"{top[key]}: {value_text}")
+    else:
+        col_top.metric(f"Highest value ({ind})", "no value")
+
+    # ---- Map ----------------------------------------------------------------
+    m = make_map(pts_f, agg, mtype, key=key, colors=colors, caption=ind)
+    st_folium(m, width=1000, height=600, returned_objects=[])
+    st.caption("© OpenStreetMap contributors · data downloaded on " + _download_date(pdict, src))
+
+    # ---- Tables -------------------------------------------------------------
+    table = pd.DataFrame(agg.drop(columns="geometry")).sort_values(
+        "value", ascending=False, na_position="last"
+    )
+    with st.expander("Top 3 areas and data table"):
+        st.dataframe(table.head(3), hide_index=True)
+        st.dataframe(table, hide_index=True)
+        st.download_button(
+            "Download table (CSV)",
+            table.to_csv(index=False, sep=";"),
+            file_name=f"{src}_{key}.csv".replace(" ", "_").lower(),
+            mime="text/csv",
+        )
+    with st.expander("Data quality"):
+        st.caption("Checks over the whole data source, without the category filter.")
+        st.dataframe(quality, hide_index=True)
 
     # ---- Chat assistant (LLM) - provided, see core/chat.py -------------------
     # Needs the variables src, cat, area_label, ind, mtype, key, pts_f, agg, quality from your code above.
