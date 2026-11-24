@@ -23,6 +23,7 @@ dependencies = [
 
 [project.scripts]
 download-osm = "berlin_bot.download_osm:main"
+berlin-bot = "berlin_bot.launcher:main"
 
 [build-system]
 requires = ["uv_build>=0.12.17,<0.13.0"]
