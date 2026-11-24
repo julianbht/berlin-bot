@@ -2,3 +2,8 @@
 .venv/
 __pycache__/
 *.pyc
+.pytest_cache/
+.DS_Store
+# local AI-tool folders
+.claude/
+.agents/
