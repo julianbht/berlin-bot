@@ -2,3 +2,18 @@
 .venv/
 __pycache__/
 *.pyc
+*.egg-info/
+.ruff_cache/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Secrets / Env
+.env
+
+# A1
+*.csv
+cache/
+osm_download_info.json
+
+

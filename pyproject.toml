@@ -1,0 +1,47 @@
+[project]
+name = "berlin-bot"
+version = "0.1.0"
+description = "Streamlit app that maps OpenStreetMap places in Berlin"
+authors = [
+    { name = "Julian Hergoss", email = "julian.hergoss@web.de" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "branca>=0.8.2",
+    "folium>=1.0.0",
+    "geopandas>=1.2.0",
+    "numpy>=2.5.5",
+    "openai>=3.58.0",
+    "osmnx>=2.2.0",
+    "pandas>=3.1.1",
+    "pyproj>=3.8.0",
+    "python-dotenv>=1.2.4",
+    "shapely>=2.2.0",
+    "streamlit>=1.67.0",
+    "streamlit-folium>=0.28.0",
+]
+
+[project.scripts]
+download-osm = "berlin_bot.download_osm:main"
+berlin-bot = "berlin_bot.launcher:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.414",
+    "ruff>=0.17.6",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pyright]
+include = ["src"]
+# pandas, geopandas and folium have loose or partial type hints: stricter modes flood the editor
+typeCheckingMode = "basic"
