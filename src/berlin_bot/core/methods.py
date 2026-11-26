@@ -278,16 +278,55 @@ def make_map(
     return m
 
 
+CHANGE_COLORS = {"gone": "#d62728", "new": "#2ca02c", "still there": "#7f7f7f"}
+
+
+def compare_points(
+    pts_then: gpd.GeoDataFrame, pts_now: gpd.GeoDataFrame
+) -> dict[str, gpd.GeoDataFrame]:
+    """Splits objects into gone (only then), new (only now) and still there (both), by OSM id.
+    An object that a mapper deleted and drew again gets a new id and counts as gone and new."""
+    ids_then = set(zip(pts_then["osm_type"], pts_then["osm_id"], strict=True))
+    ids_now = set(zip(pts_now["osm_type"], pts_now["osm_id"], strict=True))
+    in_now = [i in ids_now for i in zip(pts_then["osm_type"], pts_then["osm_id"], strict=True)]
+    in_then = [i in ids_then for i in zip(pts_now["osm_type"], pts_now["osm_id"], strict=True)]
+    return {
+        "gone": pts_then[[not x for x in in_now]],
+        "new": pts_now[[not x for x in in_then]],
+        "still there": pts_now[in_then],
+    }
+
+
+def make_change_map(groups: dict[str, gpd.GeoDataFrame]) -> folium.Map:
+    """One coloured circle per object: gone, new or still there"""
+    m = folium.Map(location=[52.52, 13.40], zoom_start=11, tiles="OpenStreetMap")
+    # Grey first, so that the coloured circles lie on top
+    for status in ["still there", "gone", "new"]:
+        gdf = groups[status]
+        color = CHANGE_COLORS[status]
+        for lat, lon, name in zip(gdf.geometry.y, gdf.geometry.x, gdf["name"], strict=True):
+            label = status if pd.isna(name) else f"{name} ({status})"
+            folium.CircleMarker(
+                [lat, lon], radius=6, color=color, fill=True, fill_opacity=0.8, tooltip=label
+            ).add_to(m)
+    return m
+
+
 # =============================================================================
 # 6) Streamlit app
 # =============================================================================
 @st.cache_data(show_spinner="Loading data and assigning areas ...")
-def prepare_source(label, pdict):
-    """Loads one OSM source, assigns PLZ and Bezirk (spatial join) and runs the quality check"""
+def prepare_source(label, pdict, year: int | None = None):
+    """Loads one OSM source, assigns PLZ and Bezirk (spatial join) and runs the quality check.
+    With a year: the objects on 1 January of that year, from the history file of the source."""
     cfg = pdict["sources"][label]
     plz = load_areas(pdict["file_plz"], "PLZ")
     dis = load_areas(pdict["file_dis"], "Bezirk")
-    pts = load_osm_points(cfg["file"])
+    if year is None:
+        pts = load_osm_points(cfg["file"])
+    else:
+        pts = load_osm_points(cfg["history"]["file"])
+        pts = pts[pts["year"] == year].reset_index(drop=True)
     pts = assign_area(pts, plz, "PLZ")
     pts = assign_area(pts, dis, "Bezirk")
     return pts, plz, dis, quality_report(pts, plz, cfg["subcat"])
@@ -315,7 +354,25 @@ def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
             "File datasets/" + cfg["file"] + ' not found. Run:  uv run download-osm "' + src + '"'
         )
         return
-    pts, plz, dis, quality = prepare_source(src, pdict)
+
+    # ---- Year and comparison (only sources with history) --------------------
+    year: int | None = None
+    compare = False
+    if "history" in cfg:
+        history_years = sorted(load_osm_points(cfg["history"]["file"])["year"].unique())
+        chosen = st.sidebar.select_slider(
+            "Year (state on 1 January)",
+            [*[int(y) for y in history_years], "Today"],
+            value="Today",
+            key=f"year_{src}",
+        )
+        if chosen != "Today":
+            year = int(chosen)
+            compare = st.sidebar.checkbox(
+                "Compare with today", help="Shows which places are gone, new or still there"
+            )
+    pts, plz, dis, quality = prepare_source(src, pdict, year)
+    src_shown = src if year is None else f"{src} on 1 January {year}"
 
     # ---- Menu 2: category filter (depends on menu 1) ------------------------
     subcat = cfg["subcat"]
@@ -326,7 +383,10 @@ def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
     # ---- Menus 3-6 ----------------------------------------------------------
     area_label = st.sidebar.selectbox("Area unit", list(pdict["areas"].keys()))
     ind = st.sidebar.selectbox("Indicator", pdict["indicators"])
-    mtype = st.sidebar.selectbox("Map type", pdict["maptypes"])
+    if compare:
+        mtype = f"Change map ({year} compared with today)"
+    else:
+        mtype = st.sidebar.selectbox("Map type", pdict["maptypes"])
     colors = list(pdict["colorscales"].values())[0]
     if mtype == "Choropleth":
         scale = st.sidebar.selectbox("Colour scale", list(pdict["colorscales"].keys()))
@@ -354,9 +414,28 @@ def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
         col_top.metric(f"Highest value ({ind})", "no value")
 
     # ---- Map ----------------------------------------------------------------
-    m = make_map(pts_f, agg, mtype, key=key, colors=colors, caption=ind)
-    st_folium(m, width=1000, height=600, returned_objects=[])
-    st.caption("© OpenStreetMap contributors · data downloaded on " + _download_date(pdict, src))
+    if compare:
+        pts_now = filter_category(prepare_source(src, pdict)[0], subcat, cat)
+        groups = compare_points(pts_f, pts_now)
+        columns = st.columns(len(groups))
+        for column, (status, gdf) in zip(columns, groups.items(), strict=True):
+            column.metric(f"{status.capitalize()} since {year}", len(gdf))
+        m = make_change_map(groups)
+        legend = " · ".join(
+            f"<span style='color:{color}'>●</span> {status}"
+            for status, color in CHANGE_COLORS.items()
+        )
+        st.markdown(legend, unsafe_allow_html=True)
+    else:
+        m = make_map(pts_f, agg, mtype, key=key, colors=colors, caption=ind)
+    st_folium(m, width=1000, height=600, returned_objects=[], key="map")
+    caption = "© OpenStreetMap contributors · data downloaded on " + _download_date(pdict, src)
+    if year is not None:
+        caption += (
+            " · OSM history shows when places were mapped or removed in OSM,"
+            " which can lag behind real openings and closings"
+        )
+    st.caption(caption)
 
     # ---- Tables -------------------------------------------------------------
     table = pd.DataFrame(agg.drop(columns="geometry")).sort_values(
@@ -368,7 +447,7 @@ def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
         st.download_button(
             "Download table (CSV)",
             table.to_csv(index=False, sep=";"),
-            file_name=f"{src}_{key}.csv".replace(" ", "_").lower(),
+            file_name=f"{src_shown}_{key}.csv".replace(" ", "_").lower(),
             mime="text/csv",
         )
     with st.expander("Data quality"):
@@ -378,5 +457,5 @@ def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
     # ---- Chat assistant (LLM) - provided, see core/chat.py -------------------
     # Needs the variables src, cat, area_label, ind, mtype, key, pts_f, agg, quality
     # from your code above.
-    ctx = chat.build_context(src, cat, area_label, ind, mtype, key, pts_f, agg, quality)
+    ctx = chat.build_context(src_shown, cat, area_label, ind, mtype, key, pts_f, agg, quality)
     chat.render_chat(ctx, pdict)
