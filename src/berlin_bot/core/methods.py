@@ -75,7 +75,8 @@ def category_options(gdf: gpd.GeoDataFrame, col: str, n: int = 10) -> list[str]:
 
 
 def filter_category(gdf: gpd.GeoDataFrame, col: str, category: str) -> gpd.GeoDataFrame:
-    """Keeps objects that have <category> among their values (cuisine=italian;pizza counts for both)"""
+    """Keeps objects that have <category> among their values
+    (cuisine=italian;pizza counts for both)"""
     if category == "All":
         return gdf
     has_category = _split_values(gdf[col]).apply(lambda values: category in values)
@@ -115,7 +116,8 @@ def aggregate(
     indicator: str,
     residents: pd.DataFrame,
 ) -> gpd.GeoDataFrame:
-    """One row per area (also areas without objects = 0) with columns count, area_km2, Einwohner, value"""
+    """One row per area (also areas without objects = 0)
+    with columns count, area_km2, Einwohner, value"""
     # Points outside all areas have key NaN, which made the column float: cast to the area dtype
     area_keys = gdf_points[key].dropna().astype(gdf_areas[key].dtype)
     counts = area_keys.value_counts().rename("count")
@@ -168,7 +170,8 @@ def _near_duplicates(gdf_points: gpd.GeoDataFrame) -> int:
 def quality_report(
     gdf_points: gpd.GeoDataFrame, gdf_areas: gpd.GeoDataFrame, subcat: str | None = None
 ) -> pd.DataFrame:
-    """Automatic checks of one OSM file. Expects column 'PLZ' (from assign_area). Returns DataFrame."""
+    """Automatic checks of one OSM file. Expects column 'PLZ' (from assign_area).
+    Returns DataFrame."""
     total = len(gdf_points)
     checks: list[tuple[str, str]] = [("Number of objects", str(total))]
 
@@ -373,6 +376,7 @@ def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
         st.dataframe(quality, hide_index=True)
 
     # ---- Chat assistant (LLM) - provided, see core/chat.py -------------------
-    # Needs the variables src, cat, area_label, ind, mtype, key, pts_f, agg, quality from your code above.
+    # Needs the variables src, cat, area_label, ind, mtype, key, pts_f, agg, quality
+    # from your code above.
     ctx = chat.build_context(src, cat, area_label, ind, mtype, key, pts_f, agg, quality)
     chat.render_chat(ctx, pdict)

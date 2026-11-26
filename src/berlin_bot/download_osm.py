@@ -41,7 +41,8 @@ def download_source(label, cfg):
     gdf = ox.features_from_place("Berlin, Germany", tags=cfg["tags"])
 
     # The index is (element type, id). Turn it into normal columns "osm_type" and "osm_id".
-    # Hint: gdf.reset_index(); the column names differ between osmnx versions -> use gdf.columns[0], [1]
+    # Hint: gdf.reset_index(); the column names differ between osmnx versions
+    # -> use gdf.columns[0], [1]
     gdf = gdf.reset_index()
     gdf = gdf.rename(columns={gdf.columns[0]: "osm_type", gdf.columns[1]: "osm_id"})
 
@@ -52,8 +53,8 @@ def download_source(label, cfg):
     gdf["lat"] = centroids.y
     gdf["lon"] = centroids.x
 
-    # Tags do not exist for every object. Add missing columns from KEEP and cfg["subcat"] (filled with
-    # pd.NA), so that later code never fails on a missing column.
+    # Tags do not exist for every object. Add missing columns from KEEP and cfg["subcat"]
+    # (filled with pd.NA), so that later code never fails on a missing column.
     # dict.fromkeys drops repeats ("name" is also in KEEP) and keeps the order
     columns = list(
         dict.fromkeys(["osm_type", "osm_id", "name", "lat", "lon", *KEEP, cfg["subcat"]])
