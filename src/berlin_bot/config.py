@@ -45,7 +45,29 @@ p["sources"] = {
         "file": "osm_charging.csv",
         "subcat": "operator",
     },
-    # TODO (team): add at least one source of your own choice (at least six sources in total)
+    # Hardly any club has a genre tag; wheelchair is the most often filled tag that splits clubs
+    "Nightclubs": {
+        "tags": {"amenity": "nightclub"},
+        "file": "osm_nightclubs.csv",
+        "subcat": "wheelchair",
+    },
+}
+
+# -----------------------------------------------------------------------------
+# OSM history: number of objects per PLZ and Bezirk on 1 January of each year, from the
+# ohsome API (one request per area unit). Only counts are stored, no points, so the file stays
+# small.
+#   source     : label in p["sources"]; the history is downloaded together with this source
+#   filter     : ohsome filter syntax (https://docs.ohsome.org/ohsome-api/v1/filter.html)
+#   start_year : first year; OSM history before 2012 is sparse
+#   simplify_m : polygons are simplified before the request to keep it small
+p["history"] = {
+    "source": "Nightclubs",
+    "filter": "amenity=nightclub",
+    "file": "osm_nightclubs_history.csv",
+    "start_year": 2012,
+    "url": "https://api.ohsome.org/v1/elements/count/groupBy/boundary",
+    "simplify_m": 50,
 }
 
 # -----------------------------------------------------------------------------
