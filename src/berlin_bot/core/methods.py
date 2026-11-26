@@ -428,7 +428,7 @@ def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
         st.markdown(legend, unsafe_allow_html=True)
     else:
         m = make_map(pts_f, agg, mtype, key=key, colors=colors, caption=ind)
-    st_folium(m, width=1000, height=600, returned_objects=[], key="map")
+    st_folium(m, width=1000, height=600, returned_objects=[])
     caption = "© OpenStreetMap contributors · data downloaded on " + _download_date(pdict, src)
     if year is not None:
         caption += (

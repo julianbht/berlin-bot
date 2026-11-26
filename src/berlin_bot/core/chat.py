@@ -145,7 +145,9 @@ def render_chat(context, pdict):
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
-    question = st.chat_input("Ask a question about the data ...", disabled=not api_key)
+    # Inside a container the input stays below the chat. At top level Streamlit pins it to the
+    # bottom of the page and scrolls the page down after every change in the menus.
+    question = st.container().chat_input("Ask a question about the data ...", disabled=not api_key)
     if not question:
         return
 
