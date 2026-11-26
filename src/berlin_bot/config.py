@@ -13,6 +13,9 @@ p["file_info"] = "osm_download_info.json"  # written by download_osm.py
 #   tags   : OSM tags used for the download (key: value or key: list of values)
 #   file   : csv file in "datasets/" written by download_osm.py
 #   subcat : OSM tag used for the dependent pull-down menu "Category filter"
+#   history: optional; snapshots of the objects on 1 January of each year
+#            file       : csv file in "datasets/", one row per object and year
+#            start_year : first year; Overpass keeps history only since September 2012
 p["sources"] = {
     "Restaurants": {
         "tags": {"amenity": "restaurant"},
@@ -50,25 +53,14 @@ p["sources"] = {
         "tags": {"amenity": "nightclub"},
         "file": "osm_nightclubs.csv",
         "subcat": "wheelchair",
+        "history": {"file": "osm_nightclubs_history.csv", "start_year": 2013},
     },
 }
 
 # -----------------------------------------------------------------------------
-# OSM history: number of objects per PLZ and Bezirk on 1 January of each year, from the
-# ohsome API (one request per area unit). Only counts are stored, no points, so the file stays
-# small.
-#   source     : label in p["sources"]; the history is downloaded together with this source
-#   filter     : ohsome filter syntax (https://docs.ohsome.org/ohsome-api/v1/filter.html)
-#   start_year : first year; OSM history before 2012 is sparse
-#   simplify_m : polygons are simplified before the request to keep it small
-p["history"] = {
-    "source": "Nightclubs",
-    "filter": "amenity=nightclub",
-    "file": "osm_nightclubs_history.csv",
-    "start_year": 2012,
-    "url": "https://api.ohsome.org/v1/elements/count/groupBy/boundary",
-    "simplify_m": 50,
-}
+# Downloads: a failed request is repeated; the wait doubles after each try
+p["download_attempts"] = 5
+p["download_first_wait_s"] = 10
 
 # -----------------------------------------------------------------------------
 # Options of the other pull-down menus
