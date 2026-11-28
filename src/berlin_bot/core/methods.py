@@ -1,6 +1,8 @@
+import datetime
 import json
 import os
 
+import altair as alt
 import folium
 import geopandas as gpd
 import pandas as pd
@@ -219,6 +221,33 @@ def quality_report(
 # =============================================================================
 # 5) Map
 # =============================================================================
+# Darkens only the base map tiles, so the coloured areas and circles keep their colours
+_DARK_TILES = (
+    ".leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.85) "
+    "contrast(.9) saturate(.6); } .leaflet-container { background: #0b0b16; }"
+)
+# Legend of the colour scale (branca draws it as svg text) and its size on phones
+_LEGEND = (
+    ".legend text, .legend .caption {{ fill: {c} !important; color: {c} !important; }}"
+    "@media (max-width: 640px) {{ .legend {{ transform: scale(.62); "
+    "transform-origin: top right; }} }}"
+)
+
+
+def _is_dark() -> bool:
+    """True when the app shows the dark theme (set in make_streamlit_app)"""
+    return st.session_state.get("bb_dark", True)
+
+
+def _base_map(location: list[float], zoom_start: int) -> folium.Map:
+    """Empty folium map with OSM tiles; in dark mode the tiles are darkened"""
+    m = folium.Map(location=location, zoom_start=zoom_start, tiles=CFG["map_tiles"])
+    dark = _is_dark() and CFG["dark_map"]
+    css = (_DARK_TILES if dark else "") + _LEGEND.format(c="#e6e6f5" if dark else "#1d1733")
+    m.get_root().header.add_child(folium.Element(f"<style>{css}</style>"))
+    return m
+
+
 def _choropleth(
     m: folium.Map,
     gdf_agg: gpd.GeoDataFrame,
@@ -236,8 +265,8 @@ def _choropleth(
 
     def style(feature: dict) -> dict:
         value = feature["properties"]["value"]
-        fill = "lightgrey" if value is None else colormap(value)
-        return {"fillColor": fill, "color": "grey", "weight": 0.5, "fillOpacity": 0.7}
+        fill = "#3a3a55" if value is None else colormap(value)
+        return {"fillColor": fill, "color": "#55557a", "weight": 0.5, "fillOpacity": 0.75}
 
     shown = gdf_agg[[key, "count", "value", "geometry"]].copy()
     shown["value"] = shown["value"].round(2)
@@ -260,7 +289,7 @@ def make_map(
     caption: str = "Value",
 ) -> folium.Map:
     """Folium map: choropleth (areas), heatmap or marker clusters (single points)"""
-    m = folium.Map(location=[52.52, 13.40], zoom_start=10, tiles="OpenStreetMap")
+    m = _base_map([52.52, 13.40], 10)
     # Folium wants [lat, lon], GeoPandas stores (x = lon, y = lat)
     lat_lon = list(zip(gdf_points.geometry.y, gdf_points.geometry.x, strict=True))
 
@@ -278,7 +307,7 @@ def make_map(
     return m
 
 
-CHANGE_COLORS = {"gone": "#d62728", "new": "#2ca02c", "still there": "#7f7f7f"}
+CHANGE_COLORS: dict[str, str] = CFG["change_colors"]
 
 
 def compare_points(
@@ -299,16 +328,70 @@ def compare_points(
 
 def make_change_map(groups: dict[str, gpd.GeoDataFrame]) -> folium.Map:
     """One coloured circle per object: gone, new or still there"""
-    m = folium.Map(location=[52.52, 13.40], zoom_start=11, tiles="OpenStreetMap")
+    m = _base_map([52.51, 13.40], 11)
     # Grey first, so that the coloured circles lie on top
     for status in ["still there", "gone", "new"]:
         gdf = groups[status]
         color = CHANGE_COLORS[status]
+        radius = 5 if status == "still there" else 7
         for lat, lon, name in zip(gdf.geometry.y, gdf.geometry.x, gdf["name"], strict=True):
             label = status if pd.isna(name) else f"{name} ({status})"
             folium.CircleMarker(
-                [lat, lon], radius=6, color=color, fill=True, fill_opacity=0.8, tooltip=label
+                [lat, lon],
+                radius=radius,
+                color=color,
+                weight=2,
+                fill=True,
+                fill_opacity=0.75,
+                tooltip=label,
             ).add_to(m)
+    return m
+
+
+def change_by_area(
+    groups: dict[str, gpd.GeoDataFrame], gdf_areas: gpd.GeoDataFrame, key: str
+) -> gpd.GeoDataFrame:
+    """One row per area with the number of objects then, now, gone, new and the net change"""
+    out = gdf_areas[[key, "geometry"]].copy()
+    for status in ["gone", "new", "still there"]:
+        keys = groups[status][key].dropna().astype(gdf_areas[key].dtype)
+        counts = keys.value_counts().rename(status)
+        out = out.merge(counts, left_on=key, right_index=True, how="left")
+        out[status] = out[status].fillna(0).astype(int)
+    out["then"] = out["gone"] + out["still there"]
+    out["now"] = out["new"] + out["still there"]
+    out["net"] = out["now"] - out["then"]
+    return out
+
+
+def make_net_change_map(gdf_change: gpd.GeoDataFrame, key: str, year: int) -> folium.Map:
+    """Choropleth of the net change per area on a diverging scale: red = loss, green = gain"""
+    m = _base_map([52.51, 13.40], 10)
+    limit = max(int(gdf_change["net"].abs().max()), 1)  # symmetric, so 0 is the middle colour
+    loss, middle, gain = CFG["net_change_colors"]
+    if not _is_dark():
+        middle = "#efeaf7"  # the dark middle colour looks muddy on the light map
+    colormap = LinearColormap(
+        [loss, middle, gain],
+        vmin=-limit,
+        vmax=limit,
+        caption=f"Net change of clubs since {year}",
+    )
+
+    def style(feature: dict) -> dict:
+        net = feature["properties"]["net"]
+        return {"fillColor": colormap(net), "color": "#55557a", "weight": 0.6, "fillOpacity": 0.8}
+
+    shown = gdf_change[[key, "then", "now", "gone", "new", "net", "geometry"]]
+    folium.GeoJson(
+        shown.to_json(),
+        style_function=style,
+        tooltip=folium.GeoJsonTooltip(
+            fields=[key, "then", "now", "gone", "new", "net"],
+            aliases=[key, f"Clubs {year}", "Clubs today", "Gone", "New", "Net change"],
+        ),
+    ).add_to(m)
+    colormap.add_to(m)
     return m
 
 
@@ -340,14 +423,408 @@ def _download_date(pdict, label):
     return "unknown"
 
 
+# ---- Look and feel ----------------------------------------------------------
+# Colours and fonts of the whole app come from .streamlit/config.toml. This CSS only adds the
+# header, the cards and the mobile layout that the theme cannot do.
+_STYLE = """
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
+
+.block-container { padding-top: 3.6rem; padding-bottom: 3rem; max-width: 1250px; }
+
+/* Header with gradient title */
+.bb-hero {
+    padding: 1.6rem 1.8rem; border-radius: 20px; margin-bottom: 1.2rem;
+    background:
+        radial-gradient(circle at 10% 0%, var(--bb-glow-pink), transparent 45%),
+        radial-gradient(circle at 90% 100%, var(--bb-glow-cyan), transparent 45%),
+        var(--bb-hero-bg);
+    border: 1px solid var(--bb-line);
+}
+.bb-hero .bb-kicker {
+    font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--bb-cyan); font-weight: 600;
+}
+.bb-hero h1 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: 2.6rem; line-height: 1.1; margin: .3rem 0 .5rem 0; padding: 0;
+    display: inline-block;
+    background: var(--bb-title);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.bb-hero p { color: var(--bb-muted); font-size: 1.05rem; margin: 0; }
+
+/* Key figure cards */
+div[data-testid="stMetric"] {
+    background: var(--bb-card); box-shadow: var(--bb-shadow);
+    border-radius: 16px; padding: .9rem 1rem;
+}
+div[data-testid="stMetricValue"] { font-family: 'Space Grotesk', sans-serif; }
+
+/* Legend chips above the map */
+.bb-legend { display: flex; flex-wrap: wrap; gap: .5rem; margin: .2rem 0 .8rem 0; }
+.bb-chip {
+    display: inline-flex; align-items: center; gap: .45rem; padding: .3rem .8rem;
+    border-radius: 999px; font-size: .9rem; background: var(--bb-chip);
+    border: 1px solid var(--bb-line);
+}
+.bb-dot { width: .7rem; height: .7rem; border-radius: 50%; display: inline-block; }
+
+/* Callout boxes */
+.bb-note {
+    padding: .8rem 1rem; border-radius: 12px; margin: .4rem 0 1rem 0;
+    background: var(--bb-note); border-left: 4px solid var(--bb-cyan); color: var(--bb-text);
+}
+
+/* Rounded map */
+iframe { border-radius: 16px; }
+
+/* Phones: smaller header, less padding, tabs scroll sideways */
+@media (max-width: 640px) {
+    .block-container { padding: 4.2rem .8rem 2rem .8rem; }
+    .bb-hero { padding: 1.1rem 1.1rem; border-radius: 16px; }
+    .bb-hero h1 { font-size: 1.8rem; }
+    .bb-hero p { font-size: .95rem; }
+    div[data-testid="stMetric"] { padding: .7rem .8rem; }
+    /* Key figures as a 2 x 2 grid instead of four rows */
+    .st-key-kpis div[data-testid="stHorizontalBlock"] { flex-wrap: wrap; gap: .6rem; }
+    .st-key-kpis div[data-testid="stColumn"] {
+        flex: 1 1 calc(50% - .6rem) !important; min-width: calc(50% - .6rem) !important;
+    }
+    div[data-baseweb="tab-list"] { overflow-x: auto; flex-wrap: nowrap; }
+}
+</style>
+"""
+
+# Colours of the CSS above, one set per theme
+_THEME_VARS = {
+    "dark": {
+        "hero-bg": "linear-gradient(135deg, #1c1236 0%, #12122a 100%)",
+        "glow-pink": "rgba(247,37,133,.35)",
+        "glow-cyan": "rgba(76,201,240,.30)",
+        "title": "linear-gradient(90deg, #ff2e88, #c77dff 55%, #4cc9f0)",
+        "cyan": "#4cc9f0",
+        "text": "#d8d8ee",
+        "muted": "#c9c9e3",
+        "line": "rgba(255,255,255,.09)",
+        "card": "linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02))",
+        "shadow": "none",
+        "chip": "rgba(255,255,255,.06)",
+        "note": "rgba(76,201,240,.08)",
+    },
+    "light": {
+        "hero-bg": "linear-gradient(135deg, #ffffff 0%, #f6f0ff 100%)",
+        "glow-pink": "rgba(247,37,133,.18)",
+        "glow-cyan": "rgba(76,201,240,.22)",
+        "title": "linear-gradient(90deg, #e0176f, #8a2be2 55%, #0b8fbf)",
+        "cyan": "#0b8fbf",
+        "text": "#2a2445",
+        "muted": "#4a4466",
+        "line": "rgba(60,30,120,.10)",
+        "card": "#ffffff",
+        "shadow": "0 4px 18px rgba(80,40,160,.08)",
+        "chip": "#ffffff",
+        "note": "rgba(11,143,191,.08)",
+    },
+}
+
+
+def _style(dark: bool) -> str:
+    """The CSS of the app with the colour variables of the current theme"""
+    colors = _THEME_VARS["dark" if dark else "light"]
+    variables = " ".join(f"--bb-{name}: {value};" for name, value in colors.items())
+    return _STYLE.replace("<style>", f"<style>:root {{ {variables} }}", 1)
+
+
+def _theme_toggle() -> bool:
+    """Dark mode switch in the sidebar. Streamlit has no function to change the theme from
+    Python, so the switch stores the choice where Streamlit keeps it (the same as the menu
+    Settings > Theme) and reloads the page. Returns True for dark mode."""
+    dark = st.context.theme.type != "light"  # None on the very first run: dark is the default
+    wanted = st.sidebar.toggle("🌙 Dark mode", value=dark)
+    if wanted != dark:
+        choice = "Dark" if wanted else "Light"
+        st.html(
+            "<script>"
+            "const key = `stActiveTheme-${window.location.pathname}-v2`;"
+            f"window.localStorage.setItem(key, JSON.stringify('{choice}'));"
+            "window.location.reload();"
+            "</script>",
+            unsafe_allow_javascript=True,
+        )
+    return dark
+
+
+def _hero(kicker: str, title: str, text: str) -> None:
+    """Header card with a gradient title"""
+    st.html(
+        f"<div class='bb-hero'><div class='bb-kicker'>{kicker}</div>"
+        f"<h1>{title}</h1><p>{text}</p></div>"
+    )
+
+
+def _legend(items: list[tuple[str, str]]) -> None:
+    """Row of coloured chips, items = [(colour, text), ...]"""
+    chips = "".join(
+        f"<span class='bb-chip'><span class='bb-dot' style='background:{color}'></span>"
+        f"{text}</span>"
+        for color, text in items
+    )
+    st.html(f"<div class='bb-legend'>{chips}</div>")
+
+
+def _note(text: str) -> None:
+    st.html(f"<div class='bb-note'>{text}</div>")
+
+
+def _show_map(m: folium.Map, key: str) -> None:
+    """Folium map that fills the width of the page, on desktop and on phones"""
+    st_folium(m, height=560, use_container_width=True, returned_objects=[], key=key)
+
+
 @ht.timer
 def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
-    """Makes Streamlit App: OSM data of Berlin, controlled by pull-down menus"""
-    st.set_page_config(page_title="OpenStreetMap Berlin", layout="wide")
-    st.title("OpenStreetMap Berlin: Places and Supply")
+    """Makes Streamlit App: OSM data of Berlin.
 
+    By default the app opens in the focused view for the Part B use case (Berlin nightclubs over
+    time). The switch "Explore all data sources" in the sidebar shows the full Part A dashboard."""
+    st.set_page_config(
+        page_title=pdict["focus_title"] + " · OpenStreetMap Berlin",
+        page_icon="🪩",
+        layout="wide",
+    )
+    st.sidebar.markdown(f"## 🪩 {pdict['focus_title']}")
+    dark = _theme_toggle()
+    st.session_state["bb_dark"] = dark
+    st.html(_style(dark))
+    explore = st.sidebar.toggle(
+        "Explore all data sources",
+        value=False,
+        help="Shows all OSM sources (restaurants, pharmacies, ...) and all menus of the dashboard.",
+    )
+    st.sidebar.divider()
+
+    if explore:
+        _explore_view(pdict, df_residents)
+    else:
+        _focus_view(pdict, df_residents)
+
+
+def _trend_chart(trend_df: pd.DataFrame, year: int) -> alt.Chart:
+    """Clubs per year as a glowing line; the y axis starts near the data, not at 0, so the
+    change is visible. The chosen starting year is marked."""
+    base = alt.Chart(trend_df).encode(
+        x=alt.X("Year:O", axis=alt.Axis(labelAngle=0, title=None)),
+        y=alt.Y("Clubs:Q", scale=alt.Scale(zero=False, nice=True), title="Clubs"),
+        tooltip=["Year", "Clubs"],
+    )
+    gradient = alt.Gradient(
+        gradient="linear",
+        stops=[
+            alt.GradientStop(color="rgba(255,46,136,0.45)", offset=0),
+            alt.GradientStop(color="rgba(255,46,136,0.0)", offset=1),
+        ],
+        x1=1,
+        x2=1,
+        y1=0,
+        y2=1,
+    )
+    area = base.mark_area(color=gradient, interpolate="monotone")
+    line = base.mark_line(color="#ff2e88", strokeWidth=3, interpolate="monotone")
+    points = base.mark_circle(size=70, color="#4cc9f0" if _is_dark() else "#0b8fbf", opacity=1)
+    start = (
+        alt.Chart(trend_df[trend_df["Year"] == year])
+        .mark_rule(color="#ffd60a", strokeDash=[4, 4], strokeWidth=2)
+        .encode(x="Year:O")
+    )
+    return (area + line + points + start).properties(height=360)
+
+
+# ---- Focused view: nightclubs over time (Part B) -------------------------------
+def _focus_view(pdict: dict, df_residents: pd.DataFrame) -> None:
+    """Answers one question: how has the number of clubs changed, and where?"""
+    src = pdict["focus_source"]
+    cfg = pdict["sources"][src]
+    if not os.path.exists("datasets/" + cfg["history"]["file"]):
+        st.error(f'History of {src} not found. Run:  uv run download-osm "{src}"')
+        return
+
+    # Counts per year from the history file. The snapshot of 1 January of this year is almost
+    # the same as today, so it is not offered as a starting year.
+    history = load_osm_points(cfg["history"]["file"])
+    per_year = history.groupby("year").size()
+    this_year = datetime.date.today().year
+    years = [int(y) for y in per_year.index if int(y) < this_year]
+
+    # ---- Only two menus: starting year and area unit ----------------------------
+    year = st.sidebar.select_slider(
+        "Compare today with",
+        years,
+        value=years[0],
+        help="State of OpenStreetMap on 1 January of that year.",
+    )
+    area_label = st.sidebar.segmented_control(
+        "Show changes per",
+        list(pdict["areas"].keys()),
+        default=pdict["default_area"],
+        format_func=lambda a: pdict["area_labels"][a],
+        required=True,
+        key="focus_area",
+    )
+    st.sidebar.caption(
+        "Tip: switch on *Explore all data sources* above for the other places and menus."
+    )
+
+    pts_then, plz, dis, _ = prepare_source(src, pdict, year)
+    pts_now, _, _, quality = prepare_source(src, pdict)
+    groups = compare_points(pts_then, pts_now)
+    key = pdict["areas"][area_label]
+    areas = plz if key == "PLZ" else dis
+    change = change_by_area(groups, areas, key)
+    n_then, n_now = len(pts_then), len(pts_now)
+    n_gone, n_new = len(groups["gone"]), len(groups["new"])
+
+    _hero(
+        "OpenStreetMap · Berlin nightlife",
+        pdict["focus_title"],
+        pdict["focus_question"].format(year=year),
+    )
+
+    # ---- Key figures --------------------------------------------------------------
+    c1, c2, c3, c4 = st.container(key="kpis").columns(4)
+    c1.metric(
+        "Clubs today",
+        n_now,
+        delta=f"{n_now - n_then:+d} since {year}",
+        border=True,
+    )
+    c2.metric(f"Clubs on 1 Jan {year}", n_then, border=True)
+    c3.metric(
+        "Gone",
+        n_gone,
+        delta=f"{-n_gone} places",
+        border=True,
+        help="In OSM in that year, not in OSM today (closed, or removed from the map).",
+    )
+    c4.metric(
+        "New",
+        n_new,
+        delta=f"+{n_new} places",
+        border=True,
+        help="In OSM today, not in OSM in that year (opened, or mapped later).",
+    )
+
+    tab_map, tab_trend, tab_area, tab_data = st.tabs(
+        ["🗺️ Map", "📈 Trend", f"🏙️ Per {pdict['area_labels'][area_label].lower()[:-1]}", "🔎 Data"]
+    )
+
+    # ---- Map: every club, coloured by what happened to it ---------------------
+    with tab_map:
+        _legend(
+            [
+                (CHANGE_COLORS["gone"], f"Gone since {year} · {n_gone}"),
+                (CHANGE_COLORS["new"], f"New since {year} · {n_new}"),
+                (CHANGE_COLORS["still there"], f"Still there · {len(groups['still there'])}"),
+            ]
+        )
+        _show_map(make_change_map(groups), key="focus_map")
+
+    # ---- Trend: clubs per year --------------------------------------------------
+    with tab_trend:
+        peak_year = int(per_year.idxmax())
+        peak = int(per_year.max())
+        _note(
+            f"<b>Peak:</b> {peak} clubs in {peak_year}. "
+            f"<b>Today:</b> {n_now} clubs, that is {n_now - peak:+d} compared with the peak."
+        )
+        trend_df = pd.DataFrame({"Year": per_year.index.astype(int), "Clubs": per_year.values})
+        st.altair_chart(_trend_chart(trend_df, year), use_container_width=True)
+        st.caption(
+            "Number of nightclubs in OpenStreetMap on 1 January of each year. "
+            f"The dashed line marks {year}."
+        )
+
+    # ---- Per area: where clubs were lost or gained --------------------------------
+    with tab_area:
+        losers = change.sort_values("net").head(1)
+        winners = change.sort_values("net", ascending=False).head(1)
+        if len(losers) and losers["net"].iloc[0] < 0:
+            text = f"<b>Biggest loss:</b> {losers[key].iloc[0]} ({losers['net'].iloc[0]:+d})"
+            if winners["net"].iloc[0] > 0:
+                text += (
+                    f" &nbsp;·&nbsp; <b>Biggest gain:</b> {winners[key].iloc[0]}"
+                    f" ({winners['net'].iloc[0]:+d})"
+                )
+            _note(text)
+        _show_map(make_net_change_map(change, key, year), key="focus_net_map")
+
+        table = (
+            pd.DataFrame(change.drop(columns="geometry"))
+            .loc[lambda d: (d["then"] > 0) | (d["now"] > 0)]
+            .sort_values("net")
+        )
+        st.dataframe(
+            table,
+            hide_index=True,
+            use_container_width=True,
+            column_order=[key, "then", "now", "gone", "new", "net"],
+            column_config={
+                key: st.column_config.TextColumn(pdict["area_labels"][area_label][:-1]),
+                "then": st.column_config.NumberColumn(f"Clubs {year}"),
+                "now": st.column_config.NumberColumn("Clubs today"),
+                "gone": st.column_config.NumberColumn("Gone"),
+                "new": st.column_config.NumberColumn("New"),
+                "net": st.column_config.NumberColumn("Net change", format="%+d"),
+            },
+        )
+
+    # ---- Data: names, download, quality ---------------------------------------------
+    with tab_data:
+        col_gone, col_new = st.columns(2)
+        for column, status in [(col_gone, "gone"), (col_new, "new")]:
+            names = groups[status][["name", key]].dropna(subset=["name"]).sort_values("name")
+            column.markdown(f"**{status.capitalize()} since {year}** ({len(groups[status])})")
+            column.dataframe(names, hide_index=True, use_container_width=True, height=280)
+        st.download_button(
+            "Download table per area (CSV)",
+            table.to_csv(index=False, sep=";"),
+            file_name=f"nightclubs_change_{year}_{key}.csv".lower(),
+            mime="text/csv",
+        )
+        with st.expander("Data quality (clubs today)"):
+            st.dataframe(quality, hide_index=True, use_container_width=True)
+
+    st.caption(
+        "© OpenStreetMap contributors · data downloaded on "
+        + _download_date(pdict, src)
+        + " · OSM history shows when places were mapped or removed in OSM, which can lag behind"
+        " real openings and closings."
+    )
+
+    # ---- Chat assistant: the table it gets holds the net change per area ------------------
+    residents = residents_by_area(df_residents, plz, dis, key)
+    agg = aggregate(pts_now, areas, key, "Number", residents)
+    agg["value"] = agg[key].map(change.set_index(key)["net"]).astype(float)
+    ctx = chat.build_context(
+        f"{src}: change from 1 January {year} to today",
+        "All",
+        area_label,
+        f"Net change of clubs since {year} (clubs today minus clubs in {year}); "
+        f"in total {n_then} then, {n_now} today, {n_gone} gone, {n_new} new",
+        "Change map",
+        key,
+        pts_now,
+        agg,
+        quality,
+    )
+    chat.render_chat(ctx, pdict)
+
+
+# ---- Full dashboard: all sources and menus (Part A) ---------------------------
+def _explore_view(pdict: dict, df_residents: pd.DataFrame) -> None:
+    """The Part A dashboard with plain-language labels"""
     # ---- Menu 1: data source ------------------------------------------------
-    src = st.sidebar.selectbox("Data source", list(pdict["sources"].keys()))
+    src = st.sidebar.selectbox("Places", list(pdict["sources"].keys()))
     cfg = pdict["sources"][src]
     if not os.path.exists("datasets/" + cfg["file"]):
         st.error(
@@ -378,15 +855,25 @@ def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
     subcat = cfg["subcat"]
     options = ["All"] + category_options(pts, subcat, pdict["top_n_category"])
     # The key makes the menu reset to "All" when the data source changes
-    cat = st.sidebar.selectbox(f"Category filter ({subcat})", options, key="cat_" + src)
+    cat = st.sidebar.selectbox(f"Filter by {subcat}", options, key="cat_" + src)
 
     # ---- Menus 3-6 ----------------------------------------------------------
-    area_label = st.sidebar.selectbox("Area unit", list(pdict["areas"].keys()))
-    ind = st.sidebar.selectbox("Indicator", pdict["indicators"])
+    area_names = list(pdict["areas"].keys())
+    area_label = st.sidebar.selectbox(
+        "Area unit",
+        area_names,
+        index=area_names.index(pdict["default_area"]),
+        format_func=lambda a: pdict["area_labels"][a],
+    )
+    ind = st.sidebar.selectbox(
+        "Measure", pdict["indicators"], format_func=lambda i: pdict["indicator_labels"][i]
+    )
     if compare:
         mtype = f"Change map ({year} compared with today)"
     else:
-        mtype = st.sidebar.selectbox("Map type", pdict["maptypes"])
+        mtype = st.sidebar.selectbox(
+            "Map type", pdict["maptypes"], format_func=lambda t: pdict["maptype_labels"][t]
+        )
     colors = list(pdict["colorscales"].values())[0]
     if mtype == "Choropleth":
         scale = st.sidebar.selectbox("Colour scale", list(pdict["colorscales"].keys()))
@@ -395,6 +882,12 @@ def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
     key = pdict["areas"][area_label]
     areas = plz if key == "PLZ" else dis
     pts_f = filter_category(pts, subcat, cat)
+    _hero(
+        "OpenStreetMap · Berlin",
+        src_shown,
+        f"{pdict['indicator_labels'][ind]} per {pdict['area_labels'][area_label].lower()[:-1]}"
+        + ("" if cat == "All" else f" · {subcat} = {cat}"),
+    )
     if pts_f.empty:
         st.warning(f"No objects for {src} with {subcat} = {cat}.")
         return
@@ -403,32 +896,32 @@ def make_streamlit_app(pdict: dict, df_residents: pd.DataFrame) -> None:
 
     # ---- Key figures --------------------------------------------------------
     col_objects, col_empty, col_top = st.columns(3)
-    col_objects.metric("Objects shown", len(pts_f))
+    col_objects.metric("Places shown", len(pts_f), border=True)
     empty_areas = int((agg["count"] == 0).sum())
-    col_empty.metric("Areas without any object", f"{empty_areas} of {len(agg)}")
+    col_empty.metric("Areas without any place", f"{empty_areas} of {len(agg)}", border=True)
     if agg["value"].notna().any():
         top = agg.loc[agg["value"].idxmax()]
         value_text = f"{top['value']:.0f}" if ind == "Number" else f"{top['value']:.2f}"
-        col_top.metric(f"Highest value ({ind})", f"{top[key]}: {value_text}")
+        col_top.metric("Highest value", f"{top[key]}: {value_text}", border=True)
     else:
-        col_top.metric(f"Highest value ({ind})", "no value")
+        col_top.metric("Highest value", "no value", border=True)
 
     # ---- Map ----------------------------------------------------------------
     if compare:
         pts_now = filter_category(prepare_source(src, pdict)[0], subcat, cat)
         groups = compare_points(pts_f, pts_now)
-        columns = st.columns(len(groups))
-        for column, (status, gdf) in zip(columns, groups.items(), strict=True):
-            column.metric(f"{status.capitalize()} since {year}", len(gdf))
-        m = make_change_map(groups)
-        legend = " · ".join(
-            f"<span style='color:{color}'>●</span> {status}"
-            for status, color in CHANGE_COLORS.items()
+        _legend(
+            [
+                (CHANGE_COLORS[status], f"{status.capitalize()} since {year} · {len(gdf)}")
+                for status, gdf in groups.items()
+            ]
         )
-        st.markdown(legend, unsafe_allow_html=True)
+        m = make_change_map(groups)
     else:
-        m = make_map(pts_f, agg, mtype, key=key, colors=colors, caption=ind)
-    st_folium(m, width=1000, height=600, returned_objects=[], key="map")
+        m = make_map(
+            pts_f, agg, mtype, key=key, colors=colors, caption=pdict["indicator_labels"][ind]
+        )
+    _show_map(m, key="map")
     caption = "© OpenStreetMap contributors · data downloaded on " + _download_date(pdict, src)
     if year is not None:
         caption += (

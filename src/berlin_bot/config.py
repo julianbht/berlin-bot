@@ -68,10 +68,42 @@ p["areas"] = {"Postal code (PLZ)": "PLZ", "District (Bezirk)": "Bezirk"}
 p["indicators"] = ["Number", "Number per km2", "Number per 10,000 residents"]
 p["maptypes"] = ["Choropleth", "Heatmap", "Point map (clusters)"]
 p["colorscales"] = {
+    "Neon (purple-pink-yellow)": ["#3a0ca3", "#f72585", "#ffd60a"],
     "Yellow-Red": ["yellow", "red"],
     "White-Blue": ["white", "darkblue"],
     "Green-Purple": ["lightgreen", "purple"],
 }
+
+# -----------------------------------------------------------------------------
+# Part B: use case "How has Berlin's club scene changed, and where did clubs close?"
+# The app opens in a focused nightclub view. All other sources and menus stay available
+# behind the switch "Explore all data sources".
+p["focus_source"] = "Nightclubs"
+p["focus_title"] = "Berlin Club Radar"
+p["focus_question"] = (
+    "How has Berlin's club scene changed since {year}? Where did clubs close, "
+    "and where did new ones open?"
+)
+p["default_area"] = "District (Bezirk)"  # 12 districts read easier than 190 postal codes
+
+# Plain-language labels for the menus (the values on the left are used in the code)
+p["area_labels"] = {"Postal code (PLZ)": "Postal codes", "District (Bezirk)": "Districts"}
+p["indicator_labels"] = {
+    "Number": "Number of places",
+    "Number per km2": "Places per km²",
+    "Number per 10,000 residents": "Places per 10,000 residents",
+}
+p["maptype_labels"] = {
+    "Choropleth": "Coloured areas",
+    "Heatmap": "Heatmap",
+    "Point map (clusters)": "Single places",
+}
+
+# Colours: gone / new / still there, and the diverging scale for the net change per area
+p["change_colors"] = {"gone": "#ff3b6b", "new": "#2ee6a8", "still there": "#8a8fb5"}
+p["net_change_colors"] = ["#ff3b6b", "#2a2a40", "#2ee6a8"]  # loss - no change - gain
+p["map_tiles"] = "OpenStreetMap"
+p["dark_map"] = True  # OSM tiles are darkened with a CSS filter to fit the dark theme
 
 # -----------------------------------------------------------------------------
 # Parameters

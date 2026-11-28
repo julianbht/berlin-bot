@@ -1,0 +1,31 @@
+# Theme of the app: neon pink and cyan accents, in a dark and a light version.
+# Users switch with the "Dark mode" toggle in the sidebar (or in the menu: Settings > Theme).
+
+[theme]
+primaryColor = "#ff2e88"
+linkColor = "#4cc9f0"
+baseRadius = "12px"
+font = "sans serif"
+chartCategoricalColors = ["#ff2e88", "#4cc9f0", "#2ee6a8", "#ffd60a", "#b5179e", "#f77f00"]
+
+[theme.dark]
+primaryColor = "#ff2e88"
+backgroundColor = "#0b0b16"
+secondaryBackgroundColor = "#17172b"
+textColor = "#f4f4fa"
+linkColor = "#4cc9f0"
+borderColor = "#2a2a45"
+
+[theme.dark.sidebar]
+backgroundColor = "#11111f"
+
+[theme.light]
+primaryColor = "#e0176f"
+backgroundColor = "#fbf9ff"
+secondaryBackgroundColor = "#f1ecfb"
+textColor = "#1d1733"
+linkColor = "#0b8fbf"
+borderColor = "#e3dcf2"
+
+[theme.light.sidebar]
+backgroundColor = "#f4effc"
